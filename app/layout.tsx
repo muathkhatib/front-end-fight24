@@ -1,6 +1,8 @@
 import React from "react";
 import "./theme/globals.css";
 import localFont from "next/font/local";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const amisProFont = localFont({
   src: [
@@ -36,7 +38,9 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className={`${amisProFont.variable} font-sans bg-base-black`}>
+        <Header />
         <main className="">{children}</main>
+        <Footer />
       </body>
     </html>
   );
