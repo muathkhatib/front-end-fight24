@@ -4,6 +4,7 @@ import { navLogo, LiveStreamIcon } from "../../assets/images";
 import Link from "next/link";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import LanguageSelectBox from "./Languages";
+import { LNG } from "../../../../src/@types/generic";
 
 interface Link {
   title: string;
@@ -17,7 +18,7 @@ const links: Link[] = [
   { title: "Eintrittskarten", to: "eintrittskarten" },
 ];
 
-const Header = () => {
+const Header = ({ lng }: LNG) => {
   return (
     <header className="pl-[90px] pr-[38px] pt-[18px] h-16 flex">
       <Link href="/" className="w-[138px]">
@@ -54,7 +55,7 @@ const Header = () => {
             <Image src={LiveStreamIcon} alt="Live Stream Icon" />
             LIVE
           </button>
-          <LanguageSelectBox />
+          <LanguageSelectBox lng={lng} />
         </div>
       </div>
     </header>

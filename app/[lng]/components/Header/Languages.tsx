@@ -1,28 +1,37 @@
 "use client";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Image from "next/image";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import { languagesIcon } from "../../assets/images";
-
-const selectList = ["en", "de"];
+import { languages } from "../../../i18n/settings";
+import { useTranslation } from "../../../i18n/client";
+import { useRouter } from "next/navigation";
+import { LNG } from "../../../../src/@types/generic";
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
-  const [selected, setSelected] = useState(selectList[0].toUpperCase());
+export default function Example({ lng }: LNG) {
+  const { t } = useTranslation(lng);
+  const router = useRouter();
 
   return (
-    <Listbox value={selected.toUpperCase()} onChange={setSelected}>
+    <Listbox
+      value={lng.toUpperCase()}
+      onChange={(value) => {
+        console.log(router);
+        return router.push(value.toLowerCase());
+      }}
+    >
       {({ open }) => (
         <>
           <div className="relative mt-2">
             <Listbox.Button className="relative cursor-default py-1.5 pl-3 pr-10 text-left text-gray-900 flex items-center justify-center  sm:text-sm sm:leading-6">
               <Image src={languagesIcon} alt="" />
               <span className="flex items-center">
-                <span className="ml-3 block truncate">{selected}</span>
+                <span className="ml-3 block truncate">{lng.toUpperCase()}</span>
               </span>
               <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
                 <ChevronDownIcon
@@ -40,7 +49,7 @@ export default function Example() {
               leaveTo="opacity-0"
             >
               <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto py-1 text-base sm:text-sm">
-                {selectList.map((item) => (
+                {languages.map((item) => (
                   <Listbox.Option
                     key={item}
                     className={({ active }) =>

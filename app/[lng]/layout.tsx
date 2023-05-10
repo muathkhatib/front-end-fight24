@@ -3,6 +3,12 @@ import "./theme/globals.css";
 import localFont from "next/font/local";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { dir } from "i18next";
+import { languages } from "../i18n/settings";
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }));
+}
 
 const amisProFont = localFont({
   src: [
@@ -32,13 +38,15 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  params: { lng },
 }: {
   children: React.ReactNode;
+  params: { lng: string };
 }) {
   return (
-    <html lang="de">
+    <html lang={lng} dir={dir(lng)}>
       <body className={`${amisProFont.variable} font-sans bg-base-black`}>
-        <Header />
+        <Header lng={lng} />
         <main className="">{children}</main>
         <Footer />
       </body>
