@@ -12,13 +12,13 @@ i18next
   .use(initReactI18next)
   .use(
     resourcesToBackend(
-      (language: any, namespace: any) =>
+      (language: string, namespace: string) =>
         import(`./locales/${language}/${namespace}.json`)
     )
   )
   .init(getOptions());
 
-export function useTranslation(lng?: any, ns?: any, options?: any) {
+export function useTranslation(lng?: string, ns?: string, options?: object) {
   if (i18next.resolvedLanguage !== lng) i18next.changeLanguage(lng);
   // @ts-ignore
   return useTranslationOrg(ns, options);

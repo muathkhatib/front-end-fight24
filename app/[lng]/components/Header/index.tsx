@@ -3,7 +3,7 @@ import Image from "next/image";
 import { navLogo, LiveStreamIcon } from "../../assets/images";
 import Link from "next/link";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import LanguageSelectBox from "./Languages";
+import LanguageSelectBox from "./LanguageSelectBox";
 import { LNG } from "../../../../src/@types/generic";
 
 interface Link {

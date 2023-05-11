@@ -1,11 +1,10 @@
 "use client";
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment } from "react";
 import Image from "next/image";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import { languagesIcon } from "../../assets/images";
 import { languages } from "../../../i18n/settings";
-import { useTranslation } from "../../../i18n/client";
 import { useRouter } from "next/navigation";
 import { LNG } from "../../../../src/@types/generic";
 
@@ -13,8 +12,7 @@ function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example({ lng }: LNG) {
-  const { t } = useTranslation(lng);
+export default function LanguageSelectBox({ lng }: LNG): JSX.Element {
   const router = useRouter();
 
   return (

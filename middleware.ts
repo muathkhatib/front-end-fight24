@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import acceptLanguage from "accept-language";
 import { fallbackLng, languages } from "./app/i18n/settings";
 
@@ -10,10 +10,10 @@ export const config = {
 
 const cookieName = "i18next";
 
-export function middleware(req: any) {
+export function middleware(req: NextRequest) {
   let lng;
   if (req.cookies.has(cookieName))
-    lng = acceptLanguage.get(req.cookies.get(cookieName).value);
+    lng = acceptLanguage.get(req.cookies.get(cookieName)?.value);
   if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language"));
   if (!lng) lng = fallbackLng;
 
@@ -22,7 +22,7 @@ export function middleware(req: any) {
   }
 
   if (req.headers.has("referer")) {
-    const refererUrl = new URL(req.headers.get("referer"));
+    const refererUrl = new URL(req.headers.get("referer") as string);
     const lngInReferer = languages.find((l) =>
       refererUrl.pathname.startsWith(`/${l}`)
     );
