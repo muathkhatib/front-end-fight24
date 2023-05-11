@@ -23,6 +23,7 @@ module.exports = {
       "base-black": "#141414",
       "secondary-dark-gray": "#373232",
       "secondary-gray": "#636363",
+      "dark-blue": "#022D51",
     },
   },
 };

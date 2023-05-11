@@ -1,0 +1,9 @@
+export const navLogo = require("./nav-logo.png");
+export const LiveStreamIcon = require("./live-stream-icon.svg");
+export const languagesIcon = require("./languages-icon.svg");
+export const youtubeIcon = require("./youtube-icon.svg");
+export const instagramIcon = require("./instagram-icon.svg");
+export const facebookIcon = require("./facebook-icon.svg");
+export const twitterIcon = require("./twitter-icon.svg");
+export const phoenixBudoshopLogo = require("./phoenix-budoshop-logo.png");
+export const blackLogo = require("./black-logo.png");
