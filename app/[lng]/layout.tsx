@@ -47,7 +47,7 @@ export default function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <body className={`${amisProFont.variable} font-sans bg-base-black`}>
         <Header lng={lng} />
-        <main className="">{children}</main>
+        <main className="main">{children}</main>
         <Footer />
       </body>
     </html>

@@ -7,13 +7,12 @@ import { languagesIcon } from "../../assets/images";
 import { languages } from "../../../i18n/settings";
 import { useRouter } from "next/navigation";
 import { LNG } from "../../../../src/@types/generic";
-
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(" ");
-}
+import { classNames } from "../../utils";
+import useBreakpoints from "@/hooks/useBreakpoints";
 
 export default function LanguageSelectBox({ lng }: LNG): JSX.Element {
   const router = useRouter();
+  const { isXs, isSm, isMd, isLg, active } = useBreakpoints();
 
   return (
     <Listbox
@@ -27,7 +26,7 @@ export default function LanguageSelectBox({ lng }: LNG): JSX.Element {
         <>
           <div className="relative mt-2">
             <Listbox.Button className="relative cursor-default py-1.5 pl-3 pr-10 text-left text-gray-900 flex items-center justify-center  sm:text-sm sm:leading-6">
-              <Image src={languagesIcon} alt="" />
+              {isXs || isSm ? null : <Image src={languagesIcon} alt="" />}
               <span className="flex items-center">
                 <span className="ml-3 block truncate">{lng.toUpperCase()}</span>
               </span>
