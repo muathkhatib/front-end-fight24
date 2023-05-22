@@ -90,7 +90,7 @@ const Footer = () => {
           alt={"Fight24 Logo"}
         />
       </Link>
-      <div className="flex">
+      <div className="flex xs:flex-col lg:flex-row items-center">
         {pagesList.map(({ url, title }) => (
           <Link key={title} href={url} className="mx-4 text-base-black">
             {title}

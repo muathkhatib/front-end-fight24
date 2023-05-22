@@ -11,3 +11,24 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+
+.banner-gradient {
+  background: linear-gradient(90deg, #141414 27%, rgba(20, 20, 20, 0) 95%);
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@media only screen and (max-width: 992px) {
+  .banner-gradient {
+    background: linear-gradient(45deg, #141414 27%, rgba(20, 20, 20, 0) 95%);
+  }
+}
