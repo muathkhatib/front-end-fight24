@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ShareIcon, ClockIcon } from "@heroicons/react/24/outline";
@@ -6,18 +7,11 @@ import { ShareIcon, ClockIcon } from "@heroicons/react/24/outline";
 import { streamCardItem } from "../assets/images";
 
 interface Props {
-  key: number;
-  date?: string;
-  title?: string;
-  price?: string;
+  data: any;
 }
 
-function UpcomingFightCard({
-  date = "20 May 2023 19:00:00 GMT",
-  title = "ELI MUNGANGA VS. HAMOYOUN SALEHI",
-  price = "9,95",
-}: Props) {
-  const d = new Date(Date.parse(date));
+function UpcomingFightCard({ data }: Props) {
+  const d = new Date(Date.parse(data.matchDate));
   const day = d.getDate();
   const monthNum = d.getMonth() + 1;
   const year = d.getFullYear().toString().slice(-2);
@@ -26,7 +20,11 @@ function UpcomingFightCard({
   return (
     <div className="flex-shrink-0 border border-light-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[324px] ">
       <div className="h-1/2">
-        <Image src={streamCardItem} alt="Card item name" />
+        <img
+          src={`https:${data.fightImage.fields.file.url}`}
+          className="w-full h-full object-cover object-top"
+          alt="Card item name"
+        />
       </div>
       <div className="h-1/2 px-2">
         <div className="flex mt-3">
@@ -37,7 +35,7 @@ function UpcomingFightCard({
             <ClockIcon className="w-4 mx-1" /> {time} CET
           </div>
         </div>
-        <h3 className="font-bold text-2xl">{title}</h3>
+        <h3 className="font-bold text-2xl">{data.title}</h3>
         <div className="flex justify-between mt-2">
           <Link
             href="#"
@@ -45,7 +43,7 @@ function UpcomingFightCard({
           >
             Kaufen
           </Link>
-          <span className="text-base-yellow"> nur {price} EUR</span>
+          <span className="text-base-yellow"> nur {data.ticketPrice} EUR</span>
           <ShareIcon className="w-4 text-light-gray" />
         </div>
       </div>

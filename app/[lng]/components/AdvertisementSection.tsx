@@ -1,21 +1,32 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 interface Props {
-  imgSrc: string;
-  imgAlt: string;
-  url: string;
+  data: {
+    advertisementUrl: string;
+    advertisementImage: {
+      fields: {
+        file: {
+          url: string;
+        };
+      };
+    };
+    imageAlternation: string;
+  };
 }
 
-function AdvertisementSection({ imgSrc, imgAlt, url }: Props) {
+function AdvertisementSection({ data }: Props) {
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   return (
     <div className="container flex items-center justify-center my-16">
-      <Link href={url} target="_blank" rel="noopener">
-        <Image
-          src={imgSrc}
-          alt={imgAlt}
-          className="object-contain  h-[300px] w-[250px]"
+      <Link href={data.advertisementUrl} target="_blank" rel="noopener">
+        <img
+          src={`https:${data.advertisementImage.fields.file.url}`}
+          alt={data.imageAlternation}
+          className="object-contain  h-[300px] m-w-[250px]"
         />
       </Link>
     </div>

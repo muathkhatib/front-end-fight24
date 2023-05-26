@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ShareIcon, ClockIcon } from "@heroicons/react/24/outline";
@@ -7,38 +8,33 @@ import { freeLatestVideoCardItem, playCircle } from "../assets/images";
 import { classNames } from "../utils";
 
 interface Props {
-  key: number;
-  tagName?: string;
-  teamName?: string;
-  title?: string;
-  desctiption?: string;
+  data: any;
 }
 
-function FreeLatestVideosCard({
-  tagName = "Live",
-  teamName = "ROYAL FC",
-  title = "Carsten Hühn vs Leon Tschan",
-  desctiption = "CHAMPIONS FULL NIGHT",
-}: Props) {
+function FreeLatestVideosCard({ data }: Props) {
+  // useEffect(() => {
+  //   console.log(data);
+  //   // const testFilter = [data].filter((c => c.matchType[0].toLowerCase() === 'boxen'))
+  //   // console.log('testFilter: ', testFilter)
+  //   // .filter(elm => elm.matchType[0] === 'boxen')
+  // }, [data]);
+
   return (
     <div className="flex-shrink-0 border border-light-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[324px] ">
-      <div className="h-1/2 relative">
+      <div className="h-1/2 relative overflow-hidden">
         <span
-          className={classNames(
-            tagName.length <= 2
-              ? "bg-base-black"
-              : tagName.length <= 4
-              ? "bg-base-yellow text-base-black"
-              : "bg-white text-base-black",
-            "absolute top-0 left-0 z-10 py-1 px-3"
-          )}
+          className="absolute top-0 left-0 z-10 py-1 px-3"
+          style={{
+            backgroundColor: data.tagColor,
+            color: data.tagTextColor,
+          }}
         >
-          {tagName}
+          {data.tagName.toUpperCase()}
         </span>
-        <Image
-          src={freeLatestVideoCardItem}
+        <img
+          src={`https:${data.previewImage.fields.file.url}`}
           alt="Card item name"
-          className="absolute z-0"
+          className="absolute z-0 w-full object-contain"
         />
         <Link
           href="#"
@@ -49,11 +45,13 @@ function FreeLatestVideosCard({
       </div>
       <div className="h-1/2 px-2">
         <div className="flex mt-3">
-          <span className="text-light-gray">{teamName}</span>
+          <span className="text-light-gray">{data.championName}</span>
         </div>
-        <h3 className="font-bold text-2xl">{title}</h3>
+        <h3 className="font-bold text-2xl">{data.title}</h3>
         <div className="flex justify-between mt-2">
-          <span className="text-base-yellow"> {desctiption}</span>
+          <span className="text-base-yellow">
+            {data.timeAndTypeOfCompetition}
+          </span>
           <ShareIcon className="w-4 text-light-gray" />
         </div>
       </div>

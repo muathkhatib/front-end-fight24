@@ -12,6 +12,20 @@ const cookieName = "i18next";
 
 export function middleware(req: NextRequest) {
   let lng;
+  const pathname = req.nextUrl.pathname;
+  const pathnameIsMissingLocale = languages.every(
+    (language) =>
+      !pathname.startsWith(`/${language}/`) && pathname !== `/${language}`
+  );
+
+  // if (pathnameIsMissingLocale) {
+  //   const locale = acceptLanguage.get(req.cookies.get(cookieName)?.value);
+
+  //   // e.g. incoming request is /products
+  //   // The new URL is now /en-US/products
+  //   return NextResponse.redirect(new URL(`/${locale}/${pathname}`, req.url));
+  // }
+
   if (req.cookies.has(cookieName))
     lng = acceptLanguage.get(req.cookies.get(cookieName)?.value);
   if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language"));
