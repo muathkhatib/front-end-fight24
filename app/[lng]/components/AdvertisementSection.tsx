@@ -1,6 +1,6 @@
-"use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Props {
   data: {
@@ -9,6 +9,11 @@ interface Props {
       fields: {
         file: {
           url: string;
+          details: {
+            image: {
+              width: number;
+            };
+          };
         };
       };
     };
@@ -17,16 +22,15 @@ interface Props {
 }
 
 function AdvertisementSection({ data }: Props) {
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
   return (
     <div className="container flex items-center justify-center my-16">
       <Link href={data.advertisementUrl} target="_blank" rel="noopener">
-        <img
+        <Image
           src={`https:${data.advertisementImage.fields.file.url}`}
           alt={data.imageAlternation}
-          className="object-contain  h-[300px] m-w-[250px]"
+          className="object-contain  h-[300px]"
+          width={data.advertisementImage.fields.file.details.image.width}
+          height="300"
         />
       </Link>
     </div>

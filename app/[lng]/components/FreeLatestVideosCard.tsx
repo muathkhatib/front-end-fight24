@@ -12,13 +12,6 @@ interface Props {
 }
 
 function FreeLatestVideosCard({ data }: Props) {
-  // useEffect(() => {
-  //   console.log(data);
-  //   // const testFilter = [data].filter((c => c.matchType[0].toLowerCase() === 'boxen'))
-  //   // console.log('testFilter: ', testFilter)
-  //   // .filter(elm => elm.matchType[0] === 'boxen')
-  // }, [data]);
-
   return (
     <div className="flex-shrink-0 border border-light-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[324px] ">
       <div className="h-1/2 relative overflow-hidden">
@@ -31,10 +24,12 @@ function FreeLatestVideosCard({ data }: Props) {
         >
           {data.tagName.toUpperCase()}
         </span>
-        <img
+        <Image
           src={`https:${data.previewImage.fields.file.url}`}
           alt="Card item name"
           className="absolute z-0 w-full object-contain"
+          width="296"
+          height="150"
         />
         <Link
           href="#"

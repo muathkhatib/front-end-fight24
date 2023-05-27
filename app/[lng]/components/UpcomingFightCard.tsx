@@ -1,10 +1,8 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ShareIcon, ClockIcon } from "@heroicons/react/24/outline";
-
-import { streamCardItem } from "../assets/images";
 
 interface Props {
   data: any;
@@ -20,10 +18,12 @@ function UpcomingFightCard({ data }: Props) {
   return (
     <div className="flex-shrink-0 border border-light-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[324px] ">
       <div className="h-1/2">
-        <img
+        <Image
           src={`https:${data.fightImage.fields.file.url}`}
           className="w-full h-full object-cover object-top"
           alt="Card item name"
+          width={data.fightImage.fields.file.details.image.width}
+          height={data.fightImage.fields.file.details.image.height}
         />
       </div>
       <div className="h-1/2 px-2">

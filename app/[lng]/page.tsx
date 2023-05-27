@@ -76,7 +76,7 @@ async function Page({ params: { lng } }: HomePageProps) {
         ))}
       </ListCardsSection>
 
-      <SubscribeSection />
+      <SubscribeSection lng={lng} />
 
       <ListCardsSection title={t("recommendedVideosTitle")}>
         {freeLatestVideos.map((item) => (

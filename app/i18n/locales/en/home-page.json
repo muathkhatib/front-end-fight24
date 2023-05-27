@@ -3,5 +3,10 @@
   "upcomingFightsTitle": "Up Coming Fights",
   "freeLatestVideosTitle": "Free Latest Videos",
   "recommendedVideosTitle": "Recommended Videos",
-  "newsTitle": "News"
+  "newsTitle": "News",
+  "moreVideosButton": "More Videos",
+  "subscriptionBtn": "Subscribe",
+  "subscribeSectionTitle": "Get updates and new fights",
+  "emailAddress": "E-Mail Address",
+  "emailPlaceholder": "Enter your e-mail address"
 }
