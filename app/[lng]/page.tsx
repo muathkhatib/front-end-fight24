@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { useTranslation } from "../i18n";
 import ContentService from "../../src/utils/content-service";
-import HomeBanner from "@/components/HomePage/HomeBanner";
 import ListCardsSection from "@/components/ListCardsSection";
 import UpcomingFightCard from "@/components/UpcomingFightCard";
 import FreeLatestVideosCard from "@/components/FreeLatestVideosCard";
@@ -10,6 +9,14 @@ import NewsCardItem from "@/components/NewsCardItem";
 import AdvertisementSection from "@/components/AdvertisementSection";
 import SubscribeSection from "@/components/SubscribeSection";
 import { yellowLiveStreamIcon } from "@/assets/images";
+import { Register } from "@/components/register";
+import { Login } from "@/components/Login/Login";
+import { PaymentMethod } from "@/components/PaymentMethod/Payment";
+import { SharePaymentMethod } from "@/components/SharePayment";
+import { SharePayDone } from "@/components/SharePaydDone";
+import { ForgotPassword } from "@/components/ForgotPassword";
+import { EmailSent } from "@/components/EmailSent";
+import HomeBanner from "@/components/HomePage/HomeBanner";
 
 interface HomePageProps {
   params: {
