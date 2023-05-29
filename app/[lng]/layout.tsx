@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./theme/globals.css";
 import localFont from "next/font/local";
 import Header from "./components/Header";
@@ -47,7 +47,9 @@ export default function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <body className={`${amisProFont.variable} font-sans bg-base-black`}>
         <Header lng={lng} />
-        <main className="main">{children}</main>
+        <Suspense>
+          <main className="main">{children}</main>
+        </Suspense>
         <Footer />
       </body>
     </html>
