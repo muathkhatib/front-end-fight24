@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { dir } from "i18next";
 import { languages } from "../i18n/settings";
+import { Login } from "./components/Login/Login";
+import { PaymentMethod } from "./components/PaymentMethod/Payment";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -47,7 +49,10 @@ export default function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <body className={`${amisProFont.variable} font-sans bg-base-black`}>
         <Header lng={lng} />
-        <main className="main">{children}</main>
+        <main className="main">
+          {/* <PaymentMethod /> */}
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

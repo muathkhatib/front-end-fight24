@@ -10,6 +10,13 @@ import NewsCardItem from "./components/NewsCardItem";
 import AdvertisementSection from "./components/AdvertisementSection";
 import SubscribeSection from "./components/SubscribeSection";
 import { yellowLiveStreamIcon, advertisement } from "./assets/images";
+import { Register } from "./components/register";
+import { Login } from "./components/Login/Login";
+import { PaymentMethod } from "./components/PaymentMethod/Payment";
+import { SharePaymentMethod } from "./components/SharePayment";
+import { SharePayDone } from "./components/SharePaydDone";
+import { ForgotPassword } from "./components/ForgotPassword";
+import { EmailSent } from "./components/EmailSent";
 
 const listOfNumbers = [...Array(20).keys()];
 
@@ -77,6 +84,13 @@ export default async function Page({ params: { lng } }: PAGE_PARAMS) {
           More Videos
         </Link>
       </div>
+      {/* <PaymentMethod /> */}
+      {/* <Login /> */}
+      {/* <Register /> */}
+      {/* <SharePaymentMethod /> */}
+      {/* <SharePayDone /> */}
+      {/* <ForgotPassword /> */}
+      {/* <EmailSent /> */}
     </>
   );
 }

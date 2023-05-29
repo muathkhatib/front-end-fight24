@@ -1,0 +1,130 @@
+.share_container {
+  position: absolute;
+  width: 671px;
+  height: 368px;
+  left: 385px;
+  top: 320px;
+
+  /* Black */
+
+  background: #141414;
+  /* Shadows on Web Page */
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.share {
+  position: absolute;
+  width: 400px;
+  height: 25px;
+  left: 136px;
+  top: 40px;
+
+  /* AmsiPro-Bold_24pt */
+
+  font-family: "AmsiPro-Bold";
+  font-size: 24px;
+  line-height: 25px;
+  /* identical to box height, or 104% */
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.share_social {
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+
+  position: absolute;
+  width: 382px;
+  height: 70px;
+  left: 145px;
+  top: 90px;
+}
+
+.password {
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 20px;
+
+  position: absolute;
+  width: 400px;
+  height: 65px;
+  left: 136px;
+  top: 184px;
+
+  /* Light Gray
+
+secondary text + icons
+*/
+  border: 1px solid #8f8f8f;
+  border-radius: 8px;
+}
+
+.colse_menu {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 617px;
+  top: 22px;
+}
+
+.btn_live {
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 8px;
+
+  position: absolute;
+  width: 400px;
+  height: 64px;
+  left: 136px;
+  top: 265px;
+
+  /* Yellow */
+
+  background: #fae600;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.coby_link {
+  width: 360px;
+  height: 16px;
+
+  /* AmsiPro-Bold_16
+
+when hovering over text
+*/
+  font-family: "AmsiPro-Bold";
+  font-size: 16px;
+  line-height: 16px;
+  /* identical to box height, or 100% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+
+  /* Black */
+
+  color: #141414;
+}
