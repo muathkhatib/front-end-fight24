@@ -2,16 +2,15 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ShareIcon, ClockIcon } from "@heroicons/react/24/outline";
-
-import { freeLatestVideoCardItem, playCircle } from "../assets/images";
-import { classNames } from "../utils";
+import { ShareIcon } from "@heroicons/react/24/outline";
+import { playCircle } from "../assets/images";
 
 interface Props {
   data: any;
+  eventDate?: any;
 }
 
-function FreeLatestVideosCard({ data }: Props) {
+function FreeLatestVideosCard({ data, eventDate }: Props) {
   return (
     <div className="flex-shrink-0 border border-light-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[324px] ">
       <div className="h-1/2 relative overflow-hidden">

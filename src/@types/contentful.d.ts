@@ -34,6 +34,9 @@ export interface IFreeLatestVideosFields {
     | "Muay Thai"
     | "Royal FC"
   )[];
+
+  /** Event Date */
+  eventDate?: string | undefined;
 }
 
 export interface IFreeLatestVideos extends Entry<IFreeLatestVideosFields> {
@@ -94,6 +97,29 @@ export interface IHomePageAdvertisement
     contentType: {
       sys: {
         id: "homePageAdvertisement";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IPageveranstaltungenFields {
+  /** Section Dates */
+  sectionDates?: Record<string, any> | undefined;
+}
+
+export interface IPageveranstaltungen
+  extends Entry<IPageveranstaltungenFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "pageveranstaltungen";
         linkType: "ContentType";
         type: "Link";
       };
@@ -223,6 +249,7 @@ export type CONTENT_TYPE =
   | "freeLatestVideos"
   | "homePage"
   | "homePageAdvertisement"
+  | "pageveranstaltungen"
   | "recommendedVideos"
   | "sliderBanner"
   | "upComingFights";
@@ -231,6 +258,7 @@ export type IEntry =
   | IFreeLatestVideos
   | IHomePage
   | IHomePageAdvertisement
+  | IPageveranstaltungen
   | IRecommendedVideos
   | ISliderBanner
   | IUpComingFights;
