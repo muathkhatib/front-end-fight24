@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useCallback } from "react";
+import React from "react";
 import { banners } from "../../assets/images";
 import Link from "next/link";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
@@ -20,8 +20,8 @@ function HomeBanner(): JSX.Element {
       >
         <div className="h-full w-full flex items-center justify-between banner-gradient">
           <ChevronLeftIcon className="xs:w-9 cursor-pointer" />
-          <div className="container w-full h-full flex flex-col xs:justify-end md:justify-center lg:justify-start xs:items-start md:items-center lg:items-start">
-            <h1 className="font-black text-5xl text-base-yellow lg:mt-20 xs:mt-0 lg:w-3/12 xs:w-auto">
+          <div className="container w-full h-full flex flex-col xs:justify-end md:justify-center lg:justify-center xs:items-start md:items-center lg:items-start">
+            <h1 className="font-black text-5xl text-base-yellow lg:mt-16 xs:mt-0 lg:w-3/12 xs:w-auto">
               3.BOXNACHT LANDAU
             </h1>
             <h3 className="text-2xl font-bold my-5 mx-0">

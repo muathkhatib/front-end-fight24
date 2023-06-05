@@ -1,7 +1,7 @@
 "use client";
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { navbarTvLinks } from "@/utils/statics";
 
 interface NavLink {
   title: string;
@@ -10,13 +10,12 @@ interface NavLink {
 }
 
 interface Props {
-  links: Array<NavLink>;
   setNestedList: (nestedList: NavLink[]) => void;
   setShowNested: (showNested: boolean) => void;
   lng: string;
 }
 
-const Nav: React.FC<Props> = ({ links, setNestedList, setShowNested, lng }) => {
+const Nav: React.FC<Props> = ({ setNestedList, setShowNested, lng }) => {
   const handleMouseEnter = useCallback(
     (nestedNav: NavLink[] = []) => {
       //@ts-ignore
@@ -32,7 +31,7 @@ const Nav: React.FC<Props> = ({ links, setNestedList, setShowNested, lng }) => {
     <div className="flex items-center justify-between">
       <nav className="w-full">
         <ul className="h-full w-full flex items-center justify-evenly">
-          {links.map(({ title, to, nestedNav }) => (
+          {navbarTvLinks.map(({ title, to, nestedNav }) => (
             <li
               className="cursor-pointer"
               onMouseEnter={() => handleMouseEnter(nestedNav)}
