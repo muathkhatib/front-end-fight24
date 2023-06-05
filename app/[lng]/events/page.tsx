@@ -32,7 +32,7 @@ export default async function page({ params: { lng } }: Props) {
   )?.sort((a, b) => b.localeCompare(a));
 
   const videosFilterHandler = ({ date }: { date: string }) => {
-    return freeLatestVideos
+    const videosCards = freeLatestVideos
       .filter(({ fields }) => {
         const { eventDate } = fields;
         return (eventDate as string)?.split("-")[0] === date;
@@ -40,6 +40,7 @@ export default async function page({ params: { lng } }: Props) {
       .map((item) => (
         <FreeLatestVideosCard key={item.sys.id} data={item.fields} />
       ));
+    return videosCards.length > 0 ? videosCards : null;
   };
 
   return (
@@ -54,11 +55,14 @@ export default async function page({ params: { lng } }: Props) {
         ))}
       </ListCardsSection>
       {sections?.length > 0 &&
-        sections.map((itemDate: any) => (
-          <ListCardsSection key={itemDate} title={itemDate}>
-            {videosFilterHandler({ date: itemDate })}
-          </ListCardsSection>
-        ))}
+        sections.map(
+          (itemDate: any) =>
+            videosFilterHandler({ date: itemDate }) && (
+              <ListCardsSection key={itemDate} title={itemDate}>
+                {videosFilterHandler({ date: itemDate })}
+              </ListCardsSection>
+            )
+        )}
     </>
   );
 }
