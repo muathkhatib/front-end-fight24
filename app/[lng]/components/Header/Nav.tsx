@@ -1,6 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
+
 interface NavLink {
   title: string;
   to: string;
@@ -11,18 +13,20 @@ interface Props {
   links: Array<NavLink>;
   setNestedList: (nestedList: NavLink[]) => void;
   setShowNested: (showNested: boolean) => void;
+  lng: string;
 }
 
-const Nav: React.FC<Props> = ({ links, setNestedList, setShowNested }) => {
-  const handleMouseEnter = (nestedNav: NavLink[] = []) => {
-    setShowNested(true);
-    setNestedList(nestedNav);
-  };
-
-  const handleMouseLeave = () => {
-    setShowNested(false);
-    setNestedList([]);
-  };
+const Nav: React.FC<Props> = ({ links, setNestedList, setShowNested, lng }) => {
+  const handleMouseEnter = useCallback(
+    (nestedNav: NavLink[] = []) => {
+      //@ts-ignore
+      setShowNested((prev) => !prev);
+      if (nestedNav.length > 0) {
+        setNestedList(nestedNav);
+      }
+    },
+    [setNestedList, setShowNested]
+  );
 
   return (
     <div className="flex items-center justify-between">
@@ -31,14 +35,15 @@ const Nav: React.FC<Props> = ({ links, setNestedList, setShowNested }) => {
           {links.map(({ title, to, nestedNav }) => (
             <li
               className="cursor-pointer"
-              onClick={() => {
-                handleMouseEnter(nestedNav);
-              }}
+              onMouseEnter={() => handleMouseEnter(nestedNav)}
               key={title}
             >
-              <span className="hover:text-base-yellow hover:border-b border-b-base-yellow pb-4">
+              <Link
+                href={`/${lng}/${to}`}
+                className="hover:text-base-yellow hover:border-b border-b-base-yellow pb-4"
+              >
                 {title}
-              </span>
+              </Link>
             </li>
           ))}
         </ul>

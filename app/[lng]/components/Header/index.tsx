@@ -95,11 +95,6 @@ const Header: React.FC<LNG> = ({ lng }) => {
   const [nestedList, setNestedList] = useState<NavLink[]>([]);
   const { isXs, isSm, isMd, isLg } = useBreakpoints();
 
-  const handleNestedNavToggle = (nestedLinks: NavLink[]) => {
-    setNestedList(nestedLinks);
-    setShowNested(nestedLinks.length > 0);
-  };
-
   const renderSearchButton = () => (
     <button className="h-full border border-gray text-gray px-[20px] py-[10px] items-center justify-center flex rounded sm:border-none xs:border-none mx-1">
       <MagnifyingGlassIcon className="h-6 w-6 mx-1" />
@@ -142,6 +137,7 @@ const Header: React.FC<LNG> = ({ lng }) => {
               links={links}
               setNestedList={setNestedList}
               setShowNested={setShowNested}
+              lng={lng}
             />
           </div>
         )}
@@ -160,11 +156,12 @@ const Header: React.FC<LNG> = ({ lng }) => {
             links={links}
             setNestedList={setNestedList}
             setShowNested={setShowNested}
+            lng={lng}
           />
         </div>
       )}
 
-      {showNested && (
+      {showNested && nestedList.length > 0 && (
         <div className="bg-[#8F8F8F]">
           <div className="container flex items-center justify-between py-6 z-20">
             {nestedList.map(({ title, to }) => (
