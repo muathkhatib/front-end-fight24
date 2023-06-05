@@ -29,12 +29,11 @@ interface VideosFilterHandlerProps {
   matchType: string;
 }
 async function Page({ params: { lng } }: HomePageProps) {
-  const [upcomingFights, freeLatestVideos, homePageAdvertisement] =
-    await Promise.all([
-      ContentService.instance.getEntriesByType("upComingFights"),
-      ContentService.instance.getEntriesByType("freeLatestVideos"),
-      ContentService.instance.getEntriesByType("homePageAdvertisement"),
-    ]);
+  const [upcomingFights, freeLatestVideos, advertisements] = await Promise.all([
+    ContentService.instance.getEntriesByType("upComingFights"),
+    ContentService.instance.getEntriesByType("freeLatestVideos"),
+    ContentService.instance.getEntriesByType("advertisements"),
+  ]);
   const { t } = await useTranslation(lng, "home-page");
 
   const listSections: string[] = ["Boxen", "MMA", "Royal FC"];
@@ -71,7 +70,7 @@ async function Page({ params: { lng } }: HomePageProps) {
         ))}
       </ListCardsSection>
       {/* @ts-ignore */}
-      <AdvertisementSection data={homePageAdvertisement[0].fields} />
+      <AdvertisementSection data={advertisements[0].fields} />
 
       <ListCardsSection
         title={t("newsTitle")}

@@ -1,6 +1,5 @@
 {
   "title": "Home Page!! EN",
-
   "freeLatestVideosTitle": "Free Latest Videos",
   "recommendedVideosTitle": "Recommended Videos",
   "newsTitle": "News",
@@ -8,5 +7,6 @@
   "subscriptionBtn": "Subscribe",
   "subscribeSectionTitle": "Get updates and new fights",
   "emailAddress": "E-Mail Address",
-  "emailPlaceholder": "Enter your e-mail address"
+  "emailPlaceholder": "Enter your e-mail address",
+  "upcomingFightsTitle": "Up Coming Fights"
 }

@@ -3,6 +3,8 @@ import {
   IFreeLatestVideosFields,
   IUpComingFights,
   IUpComingFightsFields,
+  INews,
+  INewsFields,
 } from "./contentful.d";
 export type T = any;
 export type LNG = { lng: string };
@@ -20,4 +22,9 @@ export type FreeLatestVideos = {
 export type UpComingFights = {
   sys: IUpComingFights;
   feilds: Array<IUpComingFightsFields>;
+};
+
+export type News = {
+  sys: INews;
+  feilds: Array<INewsFields>;
 };

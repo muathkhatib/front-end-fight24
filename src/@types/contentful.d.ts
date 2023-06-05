@@ -2,6 +2,37 @@
 
 import { Asset, Entry } from "contentful";
 
+export interface IAdvertisementsFields {
+  /** Advertisement URL */
+  advertisementUrl: string;
+
+  /** Advertisement Image */
+  advertisementImage?: Asset | undefined;
+
+  /** Image Alternation */
+  imageAlternation: string;
+
+  /** Advertisement Description */
+  advertisementDescription: string;
+}
+
+export interface IAdvertisements extends Entry<IAdvertisementsFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "advertisements";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IFreeLatestVideosFields {
   /** Preview Image */
   previewImage: Asset;
@@ -24,19 +55,27 @@ export interface IFreeLatestVideosFields {
   /** Time And Type Of Competition */
   timeAndTypeOfCompetition: string;
 
-  /** Match Type */
+  /** Event Type */
   matchType: (
+    | "Armdrücken"
+    | "BJJ"
     | "Boxen"
     | "Doku"
     | "Karate"
     | "Kickboxen"
     | "MMA"
     | "Muay Thai"
-    | "Royal FC"
+    | "Pro Wrestling"
+    | "Ringen"
+    | "Show"
+    | "Talk"
   )[];
 
   /** Event Date */
   eventDate?: string | undefined;
+
+  /** price */
+  price: number;
 }
 
 export interface IFreeLatestVideos extends Entry<IFreeLatestVideosFields> {
@@ -75,19 +114,33 @@ export interface IHomePage extends Entry<IHomePageFields> {
   };
 }
 
-export interface IHomePageAdvertisementFields {
-  /** Advertisement URL */
-  advertisementUrl: string;
+export interface ILiveFields {
+  /** fight image */
+  fightImage?: Asset | undefined;
 
-  /** Advertisement Image */
-  advertisementImage?: Asset | undefined;
+  /** title */
+  title: string;
 
-  /** Image Alternation */
-  imageAlternation: string;
+  /** match date */
+  matchDate: string;
+
+  /** ticket price */
+  ticketPrice: number;
+
+  /** Match Type */
+  matchType:
+    | "Am Beliebtesten"
+    | "TV"
+    | "Zuletzt Hinzugefügt"
+    | "Top Heis"
+    | "Boxen"
+    | "MMA"
+    | "Royal FC"
+    | "Auch Beliebt"
+    | "Pro Wrestling";
 }
 
-export interface IHomePageAdvertisement
-  extends Entry<IHomePageAdvertisementFields> {
+export interface ILive extends Entry<ILiveFields> {
   sys: {
     id: string;
     type: string;
@@ -96,7 +149,41 @@ export interface IHomePageAdvertisement
     locale: string;
     contentType: {
       sys: {
-        id: "homePageAdvertisement";
+        id: "live";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface INewsFields {
+  /** title */
+  title: string;
+
+  /** date */
+  date: string;
+
+  /** sub title */
+  subTitle?: string | undefined;
+
+  /** description */
+  description: string;
+
+  /** image */
+  image: Asset;
+}
+
+export interface INews extends Entry<INewsFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "news";
         linkType: "ContentType";
         type: "Link";
       };
@@ -120,6 +207,35 @@ export interface IPageveranstaltungen
     contentType: {
       sys: {
         id: "pageveranstaltungen";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IQencodeTranscodedAssetFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Transcoding Data */
+  task_data?: Record<string, any> | undefined;
+
+  /** Media */
+  media?: Asset | undefined;
+}
+
+export interface IQencodeTranscodedAsset
+  extends Entry<IQencodeTranscodedAssetFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "qencodeTranscodedAsset";
         linkType: "ContentType";
         type: "Link";
       };
@@ -214,6 +330,49 @@ export interface ISliderBanner extends Entry<ISliderBannerFields> {
   };
 }
 
+export interface ITicketsFields {
+  /** Ticket Cover */
+  ticketCover: Asset;
+
+  /** Event Title */
+  eventTitle: string;
+
+  /** Event Time */
+  eventTime: string;
+
+  /** Price */
+  price: number;
+
+  /** Entering Time */
+  enteringTime: number;
+
+  /** Beginning Time */
+  beginningTime: string;
+
+  /** Event Duration */
+  eventDuration: number;
+
+  /** location */
+  location: { lat: number; lon: number };
+}
+
+export interface ITickets extends Entry<ITicketsFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "tickets";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IUpComingFightsFields {
   /** fight image */
   fightImage?: Asset | undefined;
@@ -246,21 +405,29 @@ export interface IUpComingFights extends Entry<IUpComingFightsFields> {
 }
 
 export type CONTENT_TYPE =
+  | "advertisements"
   | "freeLatestVideos"
   | "homePage"
-  | "homePageAdvertisement"
+  | "live"
+  | "news"
   | "pageveranstaltungen"
+  | "qencodeTranscodedAsset"
   | "recommendedVideos"
   | "sliderBanner"
+  | "tickets"
   | "upComingFights";
 
 export type IEntry =
+  | IAdvertisements
   | IFreeLatestVideos
   | IHomePage
-  | IHomePageAdvertisement
+  | ILive
+  | INews
   | IPageveranstaltungen
+  | IQencodeTranscodedAsset
   | IRecommendedVideos
   | ISliderBanner
+  | ITickets
   | IUpComingFights;
 
 export type LOCALE_CODE = "de" | "en-US";

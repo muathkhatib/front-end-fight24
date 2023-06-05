@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ShareIcon } from "@heroicons/react/24/outline";
@@ -12,7 +12,7 @@ interface Props {
 
 function FreeLatestVideosCard({ data, eventDate }: Props) {
   return (
-    <div className="flex-shrink-0 border border-light-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[324px] ">
+    <div className="flex-shrink-0 border border-light-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[324px] mb-2">
       <div className="h-1/2 relative overflow-hidden">
         <span
           className="absolute top-0 left-0 z-10 py-1 px-3"
