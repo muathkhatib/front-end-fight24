@@ -14,7 +14,6 @@ export const blackLogo = require("./black-logo.png");
 export const streamCardItem = require("./stream-card-item.jpg");
 export const freeLatestVideoCardItem = require("./free-latest-video-card-item.jpg");
 
-export const selected = require("./payment-method/Slected.svg");
 export const circleCheck = require("./payment-method/Circle_Check.svg");
 export const closeLG = require("./payment-method/Close_LG.svg");
 export const discover = require("./payment-method/Discover.svg");
