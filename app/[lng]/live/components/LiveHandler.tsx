@@ -12,9 +12,7 @@ function LiveHandler({ liveVideos, advertisements, filteringList }: any) {
         const { matchType }: string[] = fields;
         return (matchType.toLowerCase() as string) === type.toLowerCase();
       })
-      .map((item: any) => (
-        <UpcomingFightCard key={item.sys.id} data={item.fields} />
-      ));
+      .map((item: any) => <UpcomingFightCard key={item.sys.id} data={item} />);
     return videosCards.length > 0 ? videosCards : null;
   };
 

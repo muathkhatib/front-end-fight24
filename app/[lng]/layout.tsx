@@ -1,10 +1,18 @@
 import React, { Suspense } from "react";
-import "./theme/globals.css";
-import localFont from "next/font/local";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import { dir } from "i18next";
+import localFont from "next/font/local";
+import { SessionProvider } from "next-auth/react";
+
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+// @ts-ignore
+import AuthModal from "@/components/AuthModal";
+// @ts-ignore
+import PaymentModal from "@/components/paymentModal";
+
 import { languages } from "../i18n/settings";
+import "./theme/globals.css";
+import { Provider } from "./store/provider";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -46,11 +54,15 @@ export default function RootLayout({
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={`${amisProFont.variable} font-sans bg-base-black`}>
-        <Header lng={lng} />
-        <Suspense>
-          <main className="main">{children}</main>
-        </Suspense>
-        <Footer />
+        <Provider>
+          <AuthModal />
+          <PaymentModal />
+          <Header lng={lng} />
+          <Suspense>
+            <main className="main">{children}</main>
+          </Suspense>
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

@@ -1,20 +1,15 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 function NewsItem({ data }: { data: any; readonly key: string | number }) {
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <div className="w-[48%] my-4 rounded border border-gray ">
       <Image
         src={`https:${data.fields.image.fields.file.url}`}
         alt={data.fields.image.fields.title}
-        className=""
         width={data.fields.image.fields.file.details.image.width}
         height={data.fields.image.fields.file.details.image.height}
       />

@@ -106,53 +106,89 @@ export const navbarTvLinks: Link[] = [
 ];
 
 export const staticCardObject = {
-  previewImage: {
-    metadata: {
-      tags: [],
-    },
-    sys: {
-      space: {
-        sys: {
-          type: "Link",
-          linkType: "Space",
-          id: "i3zd4wzyxxuz",
-        },
+  metadata: {
+    tags: [],
+  },
+  sys: {
+    space: {
+      sys: {
+        type: "Link",
+        linkType: "Space",
+        id: "i3zd4wzyxxuz",
       },
-      id: "7Ftz4FMXtdUlyvJjaugPWy",
-      type: "Asset",
-      createdAt: "2023-05-24T12:37:28.650Z",
-      updatedAt: "2023-05-24T12:37:28.650Z",
-      environment: {
-        sys: {
-          id: "master",
-          type: "Link",
-          linkType: "Environment",
-        },
-      },
-      revision: 1,
-      locale: "en-US",
     },
-    fields: {
-      title: "IMAGE-9",
-      file: {
-        url: "//images.ctfassets.net/i3zd4wzyxxuz/7Ftz4FMXtdUlyvJjaugPWy/3f95f734293cefd6f528f31f9cc51b06/IMAGE-9.jpg",
-        details: {
-          size: 26875,
-          image: {
-            width: 162,
-            height: 164,
+    id: "1k9G9BQs5UFNL3j5wrmm0f",
+    type: "Entry",
+    createdAt: "2023-05-27T12:37:56.891Z",
+    updatedAt: "2023-06-05T00:11:04.921Z",
+    environment: {
+      sys: {
+        id: "master",
+        type: "Link",
+        linkType: "Environment",
+      },
+    },
+    revision: 4,
+    contentType: {
+      sys: {
+        type: "Link",
+        linkType: "ContentType",
+        id: "freeLatestVideos",
+      },
+    },
+    locale: "en-US",
+  },
+  fields: {
+    previewImage: {
+      metadata: {
+        tags: [],
+      },
+      sys: {
+        space: {
+          sys: {
+            type: "Link",
+            linkType: "Space",
+            id: "i3zd4wzyxxuz",
           },
         },
-        fileName: "IMAGE-9.jpg",
-        contentType: "image/jpeg",
+        id: "7Ftz4FMXtdUlyvJjaugPWy",
+        type: "Asset",
+        createdAt: "2023-05-24T12:37:28.650Z",
+        updatedAt: "2023-05-24T12:37:28.650Z",
+        environment: {
+          sys: {
+            id: "master",
+            type: "Link",
+            linkType: "Environment",
+          },
+        },
+        revision: 1,
+        locale: "en-US",
+      },
+      fields: {
+        title: "IMAGE-9",
+        file: {
+          url: "//images.ctfassets.net/i3zd4wzyxxuz/7Ftz4FMXtdUlyvJjaugPWy/3f95f734293cefd6f528f31f9cc51b06/IMAGE-9.jpg",
+          details: {
+            size: 26875,
+            image: {
+              width: 162,
+              height: 164,
+            },
+          },
+          fileName: "IMAGE-9.jpg",
+          contentType: "image/jpeg",
+        },
       },
     },
+    tagColor: "#141414",
+    tagName: "KO",
+    tagTextColor: "#ffffff",
+    championName: "ROYAL FC",
+    title: "NOORISTANI vs ABID (2)",
+    timeAndTypeOfCompetition: "Full Night",
+    matchType: ["BJJ"],
+    eventDate: "2022-06-15T00:00+03:00",
+    price: 0,
   },
-  tagColor: "#141414",
-  tagName: "KO",
-  tagTextColor: "#ffffff",
-  championName: "ROYAL FC",
-  title: "NOOR vs KHALID",
-  timeAndTypeOfCompetition: "Full Night",
-  matchType: ["Royal FC"],
 };

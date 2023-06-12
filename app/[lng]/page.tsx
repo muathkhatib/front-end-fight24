@@ -9,13 +9,12 @@ import NewsCardItem from "@/components/NewsCardItem";
 import AdvertisementSection from "@/components/AdvertisementSection";
 import SubscribeSection from "@/components/SubscribeSection";
 import { yellowLiveStreamIcon } from "@/assets/images";
-import { Register } from "@/components/register";
-import { Login } from "@/components/Login/Login";
-import { PaymentMethod } from "@/components/PaymentMethod/Payment";
-import { SharePaymentMethod } from "@/components/SharePayment";
-import { SharePayDone } from "@/components/SharePaydDone";
-import { ForgotPassword } from "@/components/ForgotPassword";
-import { EmailSent } from "@/components/EmailSent";
+
+// import { PaymentMethod } from "@/components/PaymentMethod";
+// import { SharePaymentMethod } from "@/components/SharePayment";
+// import { SharePayDone } from "@/components/SharePaydDone";
+// import { ForgotPassword } from "@/components/ForgotPassword";
+// import { EmailSent } from "@/components/EmailSent";
 import HomeBanner from "@/components/HomePage/HomeBanner";
 
 interface HomePageProps {
@@ -47,9 +46,7 @@ async function Page({ params: { lng } }: HomePageProps) {
         (entry) =>
           entry.fields.matchType[0].toLowerCase() === matchType.toLowerCase()
       )
-      .map((item) => (
-        <FreeLatestVideosCard key={item.sys.id} data={item.fields} />
-      ));
+      .map((item) => <FreeLatestVideosCard key={item.sys.id} data={item} />);
   }
 
   return (
@@ -60,13 +57,13 @@ async function Page({ params: { lng } }: HomePageProps) {
         title={t("upcomingFightsTitle")}
       >
         {upcomingFights.map((item) => (
-          <UpcomingFightCard key={item.sys.id} data={item.fields} />
+          <UpcomingFightCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
 
       <ListCardsSection title={t("freeLatestVideosTitle")}>
         {freeLatestVideos.map((item) => (
-          <FreeLatestVideosCard key={item.sys.id} data={item.fields} />
+          <FreeLatestVideosCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
       {/* @ts-ignore */}
@@ -86,7 +83,7 @@ async function Page({ params: { lng } }: HomePageProps) {
 
       <ListCardsSection title={t("recommendedVideosTitle")}>
         {freeLatestVideos.map((item) => (
-          <FreeLatestVideosCard key={item.sys.id} data={item.fields} />
+          <FreeLatestVideosCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
 

@@ -29,4 +29,8 @@ export default class ContentService {
       })
     ).items;
   }
+
+  async getEntry<T>(id: string) {
+    return await this.client.getEntry<any>(id);
+  }
 }
