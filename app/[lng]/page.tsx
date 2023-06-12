@@ -9,12 +9,6 @@ import NewsCardItem from "@/components/NewsCardItem";
 import AdvertisementSection from "@/components/AdvertisementSection";
 import SubscribeSection from "@/components/SubscribeSection";
 import { yellowLiveStreamIcon } from "@/assets/images";
-
-// import { PaymentMethod } from "@/components/PaymentMethod";
-// import { SharePaymentMethod } from "@/components/SharePayment";
-// import { SharePayDone } from "@/components/SharePaydDone";
-// import { ForgotPassword } from "@/components/ForgotPassword";
-// import { EmailSent } from "@/components/EmailSent";
 import HomeBanner from "@/components/HomePage/HomeBanner";
 
 interface HomePageProps {
