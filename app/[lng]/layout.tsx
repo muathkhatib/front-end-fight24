@@ -5,10 +5,9 @@ import { SessionProvider } from "next-auth/react";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-// @ts-ignore
+
 import AuthModal from "@/components/AuthModal";
-// @ts-ignore
-import PaymentModal from "./components/paymentModal";
+import PaymentModal from "@/components/PaymentModal";
 
 import { languages } from "../i18n/settings";
 import "./theme/globals.css";
