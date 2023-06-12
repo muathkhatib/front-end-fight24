@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 // @ts-ignore
 import AuthModal from "@/components/AuthModal";
 // @ts-ignore
-import PaymentModal from "@/components/paymentModal";
+import PaymentModal from "./components/paymentModal";
 
 import { languages } from "../i18n/settings";
 import "./theme/globals.css";
