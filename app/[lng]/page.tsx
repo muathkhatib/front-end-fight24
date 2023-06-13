@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { useTranslation } from "../i18n";
 import ContentService from "../../src/utils/content-service";
-import HomeBanner from "@/components/HomePage/HomeBanner";
 import ListCardsSection from "@/components/ListCardsSection";
 import UpcomingFightCard from "@/components/UpcomingFightCard";
 import FreeLatestVideosCard from "@/components/FreeLatestVideosCard";
@@ -10,6 +9,7 @@ import NewsCardItem from "@/components/NewsCardItem";
 import AdvertisementSection from "@/components/AdvertisementSection";
 import SubscribeSection from "@/components/SubscribeSection";
 import { yellowLiveStreamIcon } from "@/assets/images";
+import HomeBanner from "@/components/HomePage/HomeBanner";
 
 interface HomePageProps {
   params: {
@@ -40,9 +40,7 @@ async function Page({ params: { lng } }: HomePageProps) {
         (entry) =>
           entry.fields.matchType[0].toLowerCase() === matchType.toLowerCase()
       )
-      .map((item) => (
-        <FreeLatestVideosCard key={item.sys.id} data={item.fields} />
-      ));
+      .map((item) => <FreeLatestVideosCard key={item.sys.id} data={item} />);
   }
 
   return (
@@ -53,13 +51,13 @@ async function Page({ params: { lng } }: HomePageProps) {
         title={t("upcomingFightsTitle")}
       >
         {upcomingFights.map((item) => (
-          <UpcomingFightCard key={item.sys.id} data={item.fields} />
+          <UpcomingFightCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
 
       <ListCardsSection title={t("freeLatestVideosTitle")}>
         {freeLatestVideos.map((item) => (
-          <FreeLatestVideosCard key={item.sys.id} data={item.fields} />
+          <FreeLatestVideosCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
       {/* @ts-ignore */}
@@ -79,7 +77,7 @@ async function Page({ params: { lng } }: HomePageProps) {
 
       <ListCardsSection title={t("recommendedVideosTitle")}>
         {freeLatestVideos.map((item) => (
-          <FreeLatestVideosCard key={item.sys.id} data={item.fields} />
+          <FreeLatestVideosCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
 

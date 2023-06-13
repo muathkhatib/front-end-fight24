@@ -5,7 +5,12 @@ import ListCardsSection from "@/components/ListCardsSection";
 import AdvertisementSection from "@/components/AdvertisementSection";
 import { useSearchParams } from "next/navigation";
 
-function TvHandler({ freeLatestVideos, advertisements, filteringList }: any) {
+function TvHandler({
+  freeLatestVideos,
+  advertisements,
+  filteringList,
+  lng,
+}: any) {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q");
 
@@ -17,7 +22,7 @@ function TvHandler({ freeLatestVideos, advertisements, filteringList }: any) {
         return (matchType[0].toLowerCase() as string) === type.toLowerCase();
       })
       .map((item: any) => (
-        <FreeLatestVideosCard key={item.sys.id} data={item.fields} />
+        <FreeLatestVideosCard key={item.sys.id} data={item} />
       ));
     return videosCards.length > 0 ? videosCards : null;
   };

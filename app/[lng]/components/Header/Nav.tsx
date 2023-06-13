@@ -28,7 +28,7 @@ const Nav: React.FC<Props> = ({ setNestedList, setShowNested, lng }) => {
   );
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center">
       <nav className="w-full">
         <ul className="h-full w-full flex items-center justify-evenly">
           {navbarTvLinks.map(({ title, to, nestedNav }) => (
@@ -39,7 +39,7 @@ const Nav: React.FC<Props> = ({ setNestedList, setShowNested, lng }) => {
             >
               <Link
                 href={`/${lng}/${to}`}
-                className="hover:text-base-yellow hover:border-b border-b-base-yellow pb-4"
+                className="hover:text-base-yellow hover:border-b border-b-base-yellow pb-4 mr-4"
               >
                 {title}
               </Link>

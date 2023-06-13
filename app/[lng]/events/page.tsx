@@ -37,9 +37,7 @@ export default async function page({ params: { lng } }: Props) {
         const { eventDate } = fields;
         return (eventDate as string)?.split("-")[0] === date;
       })
-      .map((item) => (
-        <FreeLatestVideosCard key={item.sys.id} data={item.fields} />
-      ));
+      .map((item) => <FreeLatestVideosCard key={item.sys.id} data={item} />);
     return videosCards.length > 0 ? videosCards : null;
   };
 
@@ -51,7 +49,7 @@ export default async function page({ params: { lng } }: Props) {
         title={t("upcomingFightsTitle")}
       >
         {upcomingFights.map((item) => (
-          <UpcomingFightCard key={item.sys.id} data={item.fields} />
+          <UpcomingFightCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
       {sections?.length > 0 &&

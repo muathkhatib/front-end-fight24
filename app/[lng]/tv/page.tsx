@@ -4,7 +4,6 @@ import ContentService from "../../../src/utils/content-service";
 import { FreeLatestVideos } from "../../../src/@types/generic";
 import TvHandler from "@/components/TvHandler";
 import { tvSections } from "@/utils/statics";
-import FreeLatestVideosCard from "@/components/FreeLatestVideosCard";
 
 export default async function page() {
   const [freeLatestVideos, advertisements] = await Promise.all([

@@ -30,7 +30,7 @@ export default async function page({ params: { lng } }: Props) {
         title={t("upcomingFightsTitle")}
       >
         {upcomingFights.map((item) => (
-          <UpcomingFightCard key={item.sys.id} data={item.fields} />
+          <UpcomingFightCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
 

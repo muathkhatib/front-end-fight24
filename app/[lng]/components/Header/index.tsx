@@ -1,16 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { UserIcon } from "@heroicons/react/24/outline";
+
 import useBreakpoints from "@/hooks/useBreakpoints";
-import Nav from "./Nav";
-import LanguageSelectBox from "./LanguageSelectBox";
-import { LNG } from "../../../../src/@types/generic";
-import { navLogo, blackLiveStreamIcon } from "../../assets/images";
+
 import FreeLatestVideosCard from "@/components/FreeLatestVideosCard";
+
+import { toggleModal } from "@/store/Features/auth/authSlice";
+import { LNG } from "../../../../src/@types/generic";
 import { staticCardObject } from "@/utils/statics";
+
+import Nav from "./Nav";
+import UserDropdown from "./UserDropdown";
+import LanguageSelectBox from "./LanguageSelectBox";
+import { navLogo, blackLiveStreamIcon } from "../../assets/images";
 
 interface NavLink {
   title: string;
@@ -28,12 +36,16 @@ const Header: React.FC<LNG> = ({ lng }) => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [nestedList, setNestedList] = useState<NavLink[]>([]);
   const { isXs, isSm, isMd, isLg } = useBreakpoints();
+  const auth =
+    typeof window !== "undefined" && window.localStorage.getItem("email");
+
+  const dispatch = useDispatch();
 
   const renderSearchButton = () => (
     <>
       <button
         onClick={() => setShowSearchBar((c) => !c)}
-        className="h-full border border-gray text-gray px-[20px] py-[10px] items-center justify-center flex rounded sm:border-none xs:border-none mx-1"
+        className="h-full text-gray px-[20px] py-[10px] items-center justify-center flex rounded border border-gray mx-1"
       >
         <MagnifyingGlassIcon className="h-6 w-6 mx-1" />
         {!isXs && !isSm && "Suchen"}
@@ -48,8 +60,8 @@ const Header: React.FC<LNG> = ({ lng }) => {
             />
           </div>
 
-          <div className="p-2 flex xs:flex-col md:flex-row justify-between">
-            <div className="w-1/4">
+          <div className="p-2 flex xs:flex-col xl:flex-row justify-between">
+            <div className="xs:w-full xl:w-1/4">
               <div>
                 <h5 className="text-base-yellow font-bold">Recent EVENTS</h5>
                 <div className="flex flex-col">
@@ -146,45 +158,59 @@ const Header: React.FC<LNG> = ({ lng }) => {
   );
 
   const renderLoginButton = () => (
-    <button className="h-full text-gray  border border-gray text-gray items-center justify-center flex rounded p-1  mx-2">
-      <UserIcon className="h-full w-6 m-1" />
-      {/* Anmelden */}
-    </button>
+    <div className="mx-2">
+      {!auth ? (
+        <button
+          onClick={() =>
+            auth ? console.log("Logged in") : dispatch(toggleModal())
+          }
+          className="h-full text-gray items-center justify-center flex rounded p-1 mx-2 border border-gray"
+        >
+          <UserIcon className="h-full w-6 m-1" />
+        </button>
+      ) : (
+        <UserDropdown />
+      )}
+    </div>
   );
 
   const renderLiveStreamButton = () => (
-    <button className="xs:w-16 sm:w-16 md:w-20 lg:w-20 h-full bg-base-yellow border border-base-yellow text-base-black border flex items-center justify-center rounded py-1">
+    <Link
+      href={`${lng}/live`}
+      className="xs:w-16 sm:w-16 md:w-20 lg:w-20 h-full bg-base-yellow border border-base-yellow text-base-black border flex items-center justify-center rounded py-1"
+    >
       <Image
         className="h-[30px] w-[35px] object-cover mr-1"
         src={blackLiveStreamIcon}
         alt="Live Stream Icon"
       />
       {!isXs && !isSm && "LIVE"}
-    </button>
+    </Link>
   );
 
   return (
     <header className="md:container lg:container py-[18px] h-16 flex sm:flex-col xs:flex-col xs:mb-10 lg:mb-4 sticky">
       <div className="flex items-center justify-between w-full">
-        <Link href="/" className="">
-          <Image
-            className="h-full w-full object-contain"
-            src={navLogo}
-            alt="Fight24 Logo"
-          />
-        </Link>
-
-        {(isMd || isLg) && (
-          <div className="w-5/12">
-            <Nav
-              setNestedList={setNestedList}
-              setShowNested={setShowNested}
-              lng={lng}
+        <div className="w-1/2 flex items-center">
+          <Link href="/" className="w-[138px] h-[44px]">
+            <Image
+              className="h-full w-full object-contain"
+              src={navLogo}
+              alt="Fight24 Logo"
             />
-          </div>
-        )}
+          </Link>
+          {isLg && (
+            <div className="w-5/12 ml-8">
+              <Nav
+                setNestedList={setNestedList}
+                setShowNested={setShowNested}
+                lng={lng}
+              />
+            </div>
+          )}
+        </div>
 
-        <div className="flex items-center justify-between ">
+        <div className="flex items-center justify-end">
           {renderSearchButton()}
           {renderLoginButton()}
           {renderLiveStreamButton()}
@@ -192,8 +218,8 @@ const Header: React.FC<LNG> = ({ lng }) => {
         </div>
       </div>
 
-      {(isXs || isSm) && (
-        <div className="w-full">
+      {(isXs || isSm || isMd) && (
+        <div className="w-full mt-2">
           <Nav
             setNestedList={setNestedList}
             setShowNested={setShowNested}

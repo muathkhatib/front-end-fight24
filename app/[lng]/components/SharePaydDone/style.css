@@ -1,0 +1,61 @@
+.share_container {
+  position: absolute;
+  width: 671px;
+  height: 368px;
+  left: 385px;
+  top: 320px;
+  background: #141414;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.share {
+  position: absolute;
+  width: 400px;
+  height: 25px;
+  left: 136px;
+  top: 40px;
+  font-family: "AmsiPro-Bold";
+  font-size: 24px;
+  line-height: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.share_social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+  position: absolute;
+  width: 382px;
+  height: 70px;
+  left: 145px;
+  top: 90px;
+}
+
+.circle_check {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 296px;
+  top: 184px;
+}
+
+.linke_cobied {
+  position: absolute;
+  width: 400px;
+  height: 40px;
+  left: 136px;
+  top: 288px;
+  font-family: "AmsiPro-Regular";
+  font-size: 16px;
+  line-height: 16px;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #8f8f8f;
+}
