@@ -24,7 +24,8 @@ export interface IAdvertisementsFields {
     | "Home Page Center"
     | "Events Page Center"
     | "Live Menu Page Center"
-    | "News Menu Page Center";
+    | "News Menu Page Center"
+    | "TV Page Center";
 }
 
 export interface IAdvertisements extends Entry<IAdvertisementsFields> {
