@@ -83,7 +83,7 @@ const Footer = () => {
         />
       </Link>
 
-      <Link href="/" className="w-[236px] h-[70px]">
+      <Link href="/" className="w-[236px] h-[70px] mb-7">
         <Image
           className="object-contain"
           src={blackLogo}

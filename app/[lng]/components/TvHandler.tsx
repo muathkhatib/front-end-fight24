@@ -5,12 +5,7 @@ import ListCardsSection from "@/components/ListCardsSection";
 import AdvertisementSection from "@/components/AdvertisementSection";
 import { useSearchParams } from "next/navigation";
 
-function TvHandler({
-  freeLatestVideos,
-  advertisements,
-  filteringList,
-  lng,
-}: any) {
+function TvHandler({ freeLatestVideos, advertisements, filteringList }: any) {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("q");
 
@@ -31,8 +26,6 @@ function TvHandler({
     <>
       {searchQuery ? (
         <>
-          {/* @ts-ignore */}
-          <AdvertisementSection data={advertisements[0].fields} />
           {filteringList
             .filter(
               // @ts-ignore
@@ -61,8 +54,11 @@ function TvHandler({
               )
             );
           })}
-          {/* @ts-ignore */}
-          <AdvertisementSection data={advertisements[0].fields} />
+
+          <AdvertisementSection
+            data={advertisements}
+            positionName="TV Page Center"
+          />
 
           {filteringList.slice(2).map((e: string) => {
             const videos = videosFilterHandler({ type: e });

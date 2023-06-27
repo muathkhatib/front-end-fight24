@@ -38,25 +38,26 @@ function AdvertisementSection({ data, positionName }: Props) {
         ReactHtmlParser(data.adsCode)
       ) : (
         <>
-          {data
-            .filter(
-              (e: any) =>
-                e.fields.advertismentPosition.toLowerCase() ===
-                positionName.toLowerCase()
-            )
-            .map((elm: any) => (
-              <Link
-                key={elm.sys.id}
-                href={elm.fields.redirectTo}
-                target="_blank"
-              >
-                <img
-                  src={`https:${elm.fields.advertisementImage.fields.file.url}`}
-                  alt={elm.fields.advertisementImage.fields.title}
-                  className="h-full object-none"
-                />
-              </Link>
-            ))}
+          {data.length > 0 &&
+            data
+              .filter(
+                (e: any) =>
+                  e.fields.advertismentPosition.toLowerCase() ===
+                  positionName.toLowerCase()
+              )
+              .map((elm: any) => (
+                <Link
+                  key={elm.sys.id}
+                  href={elm.fields.redirectTo}
+                  target="_blank"
+                >
+                  <img
+                    src={`https:${elm.fields.advertisementImage.fields.file.url}`}
+                    alt={elm.fields.advertisementImage.fields.title}
+                    className="h-full w-auto object-none"
+                  />
+                </Link>
+              ))}
         </>
       )}
     </div>

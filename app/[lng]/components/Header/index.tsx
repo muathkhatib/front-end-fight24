@@ -190,11 +190,13 @@ const Header: React.FC<LNG> = ({ lng }) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <div className="xs:mr-0 lg:mr-8">
-            <Image
-              className="w-full xs:h-8 md:h-11 object-contain"
-              src={navLogo}
-              alt="Fight24 Logo"
-            />
+            <Link href="/">
+              <Image
+                className="w-full xs:h-8 md:h-11 object-contain"
+                src={navLogo}
+                alt="Fight24 Logo"
+              />
+            </Link>
           </div>
           <div>
             {isLg && (

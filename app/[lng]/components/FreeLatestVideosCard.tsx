@@ -32,7 +32,7 @@ function FreeLatestVideosCard({ data, showTypeName }: Props) {
                 : freeLatestVideoCardItem
             }
             alt="Card item name"
-            className="absolute w-[296px] h-[150px] z-[-10] w-full object-contain"
+            className="absolute z-[-10] w-full object-contain"
           />
           <Link
             href="#"
