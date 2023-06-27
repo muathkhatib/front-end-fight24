@@ -3,11 +3,9 @@ import HomeBanner from "@/components/HomePage/HomeBanner";
 import TicketCard from "./components/TicketCard";
 import ContentService from "@contentfulClient";
 
-export default async function Page({
-  params: { lng },
-}: {
-  params: { lng: string };
-}) {
+export const revalidate = 10;
+
+async function page({ params: { lng } }: { params: { lng: string } }) {
   const [tickets, upComingFights] = await Promise.all([
     ContentService.instance.getEntriesByType("tickets"),
     ContentService.instance.getEntriesByType("upComingFights", lng),
@@ -28,3 +26,4 @@ export default async function Page({
     </>
   );
 }
+export default page;

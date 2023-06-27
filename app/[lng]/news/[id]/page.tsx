@@ -9,6 +9,8 @@ import { dateHandler } from "@/utils";
 
 import NewsPageContent from "./NewsPageContent";
 
+export const revalidate = 10;
+
 interface Props {
   params: {
     id: string;

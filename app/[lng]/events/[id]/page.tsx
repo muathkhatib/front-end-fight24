@@ -4,7 +4,9 @@ import ContentService from "@contentfulClient";
 import FreeLatestVideosCard from "@/components/FreeLatestVideosCard";
 import ListCardsSection from "@/components/ListCardsSection";
 
-export default async function EventPage({ params: { id, lng } }: any) {
+export const revalidate = 10;
+
+async function EventPage({ params: { id, lng } }: any) {
   const [freeLatestVideos, entryById] = await Promise.all([
     ContentService.instance.getEntriesByType("freeLatestVideos", lng),
     // Get Event by id
@@ -30,3 +32,5 @@ export default async function EventPage({ params: { id, lng } }: any) {
     </div>
   );
 }
+
+export default EventPage;

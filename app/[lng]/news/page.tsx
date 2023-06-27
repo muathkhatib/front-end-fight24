@@ -8,6 +8,8 @@ import { useTranslation } from "../../i18n";
 import ContentService from "@contentfulClient";
 import { News } from "../../../src/@types/generic";
 
+export const revalidate = 10;
+
 interface Props {
   params: {
     lng: string;

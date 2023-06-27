@@ -12,6 +12,8 @@ import SubscribeSection from "@/components/SubscribeSection";
 import { yellowLiveStreamIcon } from "@/assets/images";
 import HomeBanner from "@/components/HomePage/HomeBanner";
 
+export const revalidate = 10;
+
 interface HomePageProps {
   params: {
     lng: string;

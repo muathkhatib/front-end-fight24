@@ -5,6 +5,8 @@ import TvHandler from "@/components/TvHandler";
 import { tvSections } from "@/utils/statics";
 import VideoPlayerSection from "../components/VideoPlayerSection";
 
+export const revalidate = 10;
+
 interface Props {
   params: { lng: string; id: string };
 }

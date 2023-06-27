@@ -8,6 +8,8 @@ import { yellowLiveStreamIcon } from "@/assets/images";
 import { useTranslation } from "../../i18n";
 import LiveHandler from "./components/LiveHandler";
 
+export const revalidate = 10;
+
 interface Props {
   params: {
     lng: string;

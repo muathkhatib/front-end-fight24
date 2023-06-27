@@ -5,7 +5,9 @@ import { FreeLatestVideos } from "../../../src/@types/generic";
 import TvHandler from "@/components/TvHandler";
 import { tvSections } from "@/utils/statics";
 
-export default async function page({ params: { lng } }: any) {
+export const revalidate = 10;
+
+async function page({ params: { lng } }: any) {
   const [freeLatestVideos, advertisements, upComingFights] = await Promise.all([
     ContentService.instance.getEntriesByType<FreeLatestVideos>(
       "freeLatestVideos",
@@ -26,3 +28,5 @@ export default async function page({ params: { lng } }: any) {
     </>
   );
 }
+
+export default page;

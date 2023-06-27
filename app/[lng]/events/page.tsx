@@ -11,6 +11,8 @@ import { useTranslation } from "../../i18n";
 import ContentService from "@contentfulClient";
 import { FreeLatestVideos, UpComingFights } from "../../../src/@types/generic";
 
+export const revalidate = 10;
+
 interface Props {
   params: {
     lng: string;

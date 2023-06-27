@@ -1,9 +1,10 @@
 import React from "react";
 import ContentService from "@contentfulClient";
 import HomeBanner from "@/components/HomePage/HomeBanner";
-import { tvSections } from "@/utils/statics";
 
 import BuyTicket from "../components/BuyTicket";
+
+export const revalidate = 10;
 
 interface Props {
   params: { lng: string; id: string };
