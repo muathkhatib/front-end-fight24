@@ -28,20 +28,22 @@ const Nav: React.FC<Props> = ({ setNestedList, setShowNested, lng }) => {
   );
 
   return (
-    <div className="flex items-center">
+    <div className="w-full flex items-center">
       <nav className="w-full">
-        <ul className="h-full w-full flex items-center justify-evenly">
+        <ul className="h-full w-full flex items-center justify-between">
           {navbarTvLinks.map(({ title, to, nestedNav }) => (
             <li
               className="cursor-pointer"
-              onMouseEnter={() => handleMouseEnter(nestedNav)}
+              onMouseEnter={() =>
+                nestedNav && nestedNav.length > 0 && handleMouseEnter(nestedNav)
+              }
               key={title}
             >
               <Link
-                href={`/${lng}/${to}`}
-                className="hover:text-base-yellow hover:border-b border-b-base-yellow pb-4 mr-4"
+                href={`/${to}`}
+                className="hover:text-base-yellow hover:border-b-2 border-b-base-yellow pb-4 xs:mr-0 lg:mr-4 xs:text-xs xl:text-base"
               >
-                {title}
+                {title.toUpperCase()}
               </Link>
             </li>
           ))}

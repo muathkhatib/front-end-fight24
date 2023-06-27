@@ -32,7 +32,7 @@ function TvHandler({
       {searchQuery ? (
         <>
           {/* @ts-ignore */}
-          <AdvertisementSection data={advertisements[1].fields} />
+          <AdvertisementSection data={advertisements[0].fields} />
           {filteringList
             .filter(
               // @ts-ignore
@@ -62,7 +62,7 @@ function TvHandler({
             );
           })}
           {/* @ts-ignore */}
-          <AdvertisementSection data={advertisements[1].fields} />
+          <AdvertisementSection data={advertisements[0].fields} />
 
           {filteringList.slice(2).map((e: string) => {
             const videos = videosFilterHandler({ type: e });

@@ -28,7 +28,9 @@
     ],
     "paths": {
       "@/*": ["./app/[lng]/*"],
-      "@types": ["./@types/generic.d.ts"]
+      "@types": ["./@types/generic.d.ts"],
+      "@contentfulClient": ["./src/utils/content-service.ts"],
+      "@i18n/*": ["./app/i18n/*"]
     }
   },
   "include": [

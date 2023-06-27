@@ -1,23 +1,27 @@
 import React from "react";
-import HomeBanner from "@/components/HomePage/HomeBanner";
 import ContentService from "@contentfulClient";
-import { FreeLatestVideos } from "../../../src/@types/generic";
+import { FreeLatestVideos } from "../../../../src/@types/generic";
 import TvHandler from "@/components/TvHandler";
 import { tvSections } from "@/utils/statics";
+import VideoPlayerSection from "../components/VideoPlayerSection";
 
-export default async function page({ params: { lng } }: any) {
-  const [freeLatestVideos, advertisements, upComingFights] = await Promise.all([
+interface Props {
+  params: { lng: string; id: string };
+}
+
+async function page({ params: { lng, id } }: Props) {
+  const [freeLatestVideos, advertisements, entryData] = await Promise.all([
     ContentService.instance.getEntriesByType<FreeLatestVideos>(
       "freeLatestVideos",
       lng
     ),
     ContentService.instance.getEntriesByType("advertisements", lng),
-    ContentService.instance.getEntriesByType("upComingFights", lng),
+    ContentService.instance.getEntryById(id, lng),
   ]);
 
   return (
     <>
-      <HomeBanner upComingFights={upComingFights} />
+      <VideoPlayerSection data={entryData} />
       <TvHandler
         advertisements={advertisements}
         freeLatestVideos={freeLatestVideos}
@@ -26,3 +30,4 @@ export default async function page({ params: { lng } }: any) {
     </>
   );
 }
+export default page;

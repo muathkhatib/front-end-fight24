@@ -1,15 +1,21 @@
-export const fallbackLng = "de";
-export const languages = [fallbackLng, "en"];
-export const defaultNS = "translation";
+export const i18n = {
+  defaultLocale: "de",
+  locales: ["en-US", "de"],
+} as const;
 
-export function getOptions(lng = fallbackLng, ns = defaultNS) {
+export type Locale = (typeof i18n)["locales"][number];
+
+export function getOptions(
+  lng: string = i18n.defaultLocale,
+  ns: string = "translation"
+) {
   return {
     debug: false,
-    supportedLngs: languages,
-    fallbackLng,
+    supportedLngs: i18n.locales,
+    fallbackLng: i18n.defaultLocale,
     lng,
-    fallbackNS: defaultNS,
-    defaultNS,
+    fallbackNS: i18n.defaultLocale,
+    defaultNS: "translation",
     ns,
   };
 }

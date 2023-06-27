@@ -1,14 +1,32 @@
 import React from "react";
-import ContentService from "../../../../src/utils/content-service";
 import EventItem from "../components/EventItem";
+import ContentService from "@contentfulClient";
+import FreeLatestVideosCard from "@/components/FreeLatestVideosCard";
+import ListCardsSection from "@/components/ListCardsSection";
 
-export default async function EventPage({ params: { id } }: any) {
-  // Get Event by id
-  const data = await ContentService.instance.getEntry(id);
+export default async function EventPage({ params: { id, lng } }: any) {
+  const [freeLatestVideos, entryById] = await Promise.all([
+    ContentService.instance.getEntriesByType("freeLatestVideos", lng),
+    // Get Event by id
+    ContentService.instance.getEntryById(id),
+  ]);
 
   return (
-    <div>
-      <EventItem data={data} />
+    <div className="mb-28">
+      <EventItem data={entryById} />
+      <ListCardsSection title="TV">
+        {freeLatestVideos && freeLatestVideos.length > 0
+          ? freeLatestVideos
+              .slice(0, 10)
+              .map((item: any) => (
+                <FreeLatestVideosCard
+                  key={item.sys.id}
+                  data={item}
+                  showTypeName={true}
+                />
+              ))
+          : null}
+      </ListCardsSection>
     </div>
   );
 }

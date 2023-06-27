@@ -3,8 +3,19 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-function NewsItem({ data }: { data: any; readonly key: string | number }) {
+import { convertToShortText } from "@/utils";
+
+function NewsItem({
+  data,
+  lng,
+}: {
+  data: any;
+  lng: string;
+  readonly key: string | number;
+}) {
+  const testText = documentToReactComponents(data?.fields?.articleContent);
   return (
     <div className="w-[48%] my-4 rounded border border-gray ">
       <Image
@@ -15,19 +26,11 @@ function NewsItem({ data }: { data: any; readonly key: string | number }) {
       />
       <div className="px-2">
         <span className="text-base-yellow ">23.11.22</span>
-        <h3 className="text-2xl font-bold">
-          FIGHT NIGHT MANNHEIM XV: HERE TO STAY
-        </h3>
-        <h5 className="text-base-yellow ">
-          Die Veranstaltung in der Quadratestadt geht in die nächste Runde
-        </h5>
-        <p className="text-gray">
-          Denn nach den aktuellen Geschehnissen liegt ein dunkler Schatten über
-          diesem Event - er wurde komplett gestrichen. Doch worum geht es
-          eigentlich konkret? Als lokaler Veranstalter von Glory Rivals I
-          fungiert die AFO (Antwerp Fighting Organisation) - und auf die scheint
-          die Staatsanwaltschaft schon länger ein Auge geworfen zu haben ...
-        </p>
+        <Link href={`/${lng}/news/${data.sys.id}`}>
+          <h3 className="text-2xl font-bold">{data.fields.title}</h3>
+        </Link>
+        <h5 className="text-base-yellow ">{data.fields.subTitle}</h5>
+        <p className="text-gray">{data.fields.shortDescription} ...</p>
         <div className="w-full flex justify-between  my-3">
           <Link href="#" className="border border-gray rounded py-3 px-7">
             Mehr

@@ -22,15 +22,16 @@ export default class ContentService {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
 
-  async getEntriesByType<T>(type: string) {
+  async getEntriesByType<T>(type: string, locale: string = "en-US") {
     return (
       await this.client.getEntries<any>({
         content_type: type,
+        locale,
       })
     ).items;
   }
 
-  async getEntry<T>(id: string) {
-    return await this.client.getEntry<any>(id);
+  async getEntryById<T>(id: string, locale: string = "de") {
+    return await this.client.getEntry<any>(id, { locale });
   }
 }

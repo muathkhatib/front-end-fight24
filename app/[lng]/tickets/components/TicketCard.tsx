@@ -15,7 +15,7 @@ export default function TicketCard({ data, lng }: any) {
   const dispatch = useDispatch();
   const { t } = useTranslation(lng, "tickets");
   const { year, month, day, hour, minutes } = useMemo(
-    () => dateHandler(data.eventTime),
+    () => dateHandler(data.fields.eventTime),
     []
   );
   const buyButtonHandler = useCallback(
@@ -31,7 +31,7 @@ export default function TicketCard({ data, lng }: any) {
 
   const formattedPrice = useMemo(
     () =>
-      data.price.toLocaleString(undefined, {
+      data.fields.price.toLocaleString(undefined, {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       }),
@@ -42,13 +42,15 @@ export default function TicketCard({ data, lng }: any) {
     <div className="border border-gray mb-20 rounded-lg overflow-hidden">
       <div className="w-full h-3/5 ">
         <img
-          src={`https:${data.ticketCover?.fields?.file?.url}`}
+          src={`https:${data.fields.ticketCover?.fields?.file?.url}`}
           className="object-cover"
         />
       </div>
       <div className="p-4 flex flex-col justify-between items-start">
         <h3 className="text-base-yellow font-black text-5xl mb-2">
-          {data.eventTitle}
+          <Link href={`/${lng}/tickets/${data.sys.id}`}>
+            {data.fields.eventTitle}
+          </Link>
         </h3>
         <div className="w-2/3 flex text-2xl font-bold">
           <h4>
@@ -60,19 +62,19 @@ export default function TicketCard({ data, lng }: any) {
         </div>
         <div className="text-gray my-2">
           <span className="mr-4">
-            Einlass: {hour + data?.enteringTime}:{minutes} CET
+            Einlass: {hour + data?.fields.enteringTime}:{minutes} CET
           </span>
           <span className="mr-4">
             Beginn: {hour}:{minutes} CET
           </span>
           <span>
-            Ende: {hour + data?.eventDuration}:{minutes} CET
+            Ende: {hour + data?.fields.eventDuration}:{minutes} CET
           </span>
         </div>
         <div className="mx-w-1/3">
           <Link
             className="hover:text-base-yellow"
-            href={`https://maps.google.com/?ll=${data.location.lat},${data.location.lon}`}
+            href={`https://maps.google.com/?ll=${data.fields.location.lat},${data.fields.location.lon}`}
             target="_blank"
           >
             Sporthalle Erzhausen Heinrichstraße 40, 64390 Erzhausen
