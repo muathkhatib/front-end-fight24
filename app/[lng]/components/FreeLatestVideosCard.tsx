@@ -25,16 +25,14 @@ function FreeLatestVideosCard({ data, showTypeName }: Props) {
           >
             {data.fields.tagName.toUpperCase()}
           </span>
-          <Image
+          <img
             src={
               data?.fields?.previewImage?.fields?.file?.url
                 ? `https://${data.fields.previewImage.fields.file.url}`
                 : freeLatestVideoCardItem
             }
             alt="Card item name"
-            className="absolute z-[-10] w-full object-contain"
-            width="296"
-            height="150"
+            className="absolute w-[296px] h-[150px] z-[-10] w-full object-contain"
           />
           <Link
             href="#"
