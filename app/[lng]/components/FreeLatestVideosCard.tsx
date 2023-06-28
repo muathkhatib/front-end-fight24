@@ -61,7 +61,7 @@ function FreeLatestVideosCard({ data, showTypeName }: Props) {
       </div>
       {showTypeName && (
         <div>
-          <h3 className="text-gray text-2xl font-bold">
+          <h3 className="text-base-gray text-2xl font-bold">
             {data.fields.matchType[0]}
           </h3>
         </div>

@@ -103,7 +103,7 @@ function BuyTicket({ data }: Props) {
           </h5>
         </div>
         <div className="flex mt-4 xs:justify-evenly md:justify-start">
-          <span className="text-gray mr-4">Teilen</span>
+          <span className="text-base-gray mr-4">Teilen</span>
           <FaTwitter className="w-6 h-6  mr-4 text-base-yellow" />
           <FaFacebookF className="w-6 h-6  mr-4 text-base-yellow" />
           <FaInstagram className="w-6 h-6 mr-6 text-base-yellow" />

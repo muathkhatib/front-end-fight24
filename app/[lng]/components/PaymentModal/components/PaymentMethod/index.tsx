@@ -91,24 +91,24 @@ function Methods({ setModalType }: any) {
         <div className="w-full mx-auto flex flex-col items-center">
           <h3 className="text-2xl mb-6 font-bold">PAYMENT METHOD</h3>
 
-          <div className="w-full flex items-center justify-between border p-5 border border-gray rounded-lg mb-2">
+          <div className="w-full flex items-center justify-between border p-5 border border-base-gray rounded-lg mb-2">
             <div className="flex items-center">
-              <CheckCircleIcon className="w-6 h-6 text-gray mr-4" />
+              <CheckCircleIcon className="w-6 h-6 text-base-gray mr-4" />
               <h5 className="text-2xl font-bold ">Paypal</h5>
             </div>
-            <p className="w-3/6 text-gray">
+            <p className="w-3/6 text-base-gray">
               You will be redirected to the PayPal website after submitting your
               order
             </p>
             <Image src={paypal} className="border" alt="" />
           </div>
 
-          <div className="w-full flex items-center justify-between border p-5 border border-gray rounded-lg mb-2">
+          <div className="w-full flex items-center justify-between border p-5 border border-base-gray rounded-lg mb-2">
             <div className="flex items-center">
-              <CheckCircleIcon className="w-6 h-6 text-gray mr-4" />
+              <CheckCircleIcon className="w-6 h-6 text-base-gray mr-4" />
               <h5 className="text-2xl font-bold ">Apple Pay</h5>
             </div>
-            <p className="w-3/6 text-gray">
+            <p className="w-3/6 text-base-gray">
               Your payment will be processed in EUR
             </p>
             <div className="flex items-center">
@@ -117,10 +117,10 @@ function Methods({ setModalType }: any) {
             </div>
           </div>
 
-          <div className="w-full border p-5 border border-gray rounded-lg mb-2">
+          <div className="w-full border p-5 border border-base-gray rounded-lg mb-2">
             <div className="w-full flex items-center justify-between">
               <div className="flex items-center">
-                <CheckCircleIcon className="w-6 h-6 text-gray mr-4" />
+                <CheckCircleIcon className="w-6 h-6 text-base-gray mr-4" />
                 <h5 className="text-2xl font-bold">Credit Card</h5>
               </div>
               <div className="flex">
@@ -133,10 +133,10 @@ function Methods({ setModalType }: any) {
 
             <div className="mt-4">
               <div className="w-full flex xs:flex-col md:flex-row items-center justify-between mb-4">
-                <fieldset className="xs:w-full md:w-[48%] flex border px-3 py-3 border-gray rounded-lg">
+                <fieldset className="xs:w-full md:w-[48%] flex border px-3 py-3 border-base-gray rounded-lg">
                   <legend className="px-3">Card number</legend>
                   <input
-                    className="bg-base-black text-gray px-3 outline-none"
+                    className="bg-base-black text-base-gray px-3 outline-none"
                     type="text"
                     placeholder="1234 5678 9101 3456"
                     value={cardNumber}
@@ -146,7 +146,9 @@ function Methods({ setModalType }: any) {
                   />
                   <CheckCircleOutLineIcon
                     className={classNames(
-                      isCardNumberValid ? "text-success-color" : "text-gray",
+                      isCardNumberValid
+                        ? "text-success-color"
+                        : "text-base-gray",
                       "w-6 h-6"
                     )}
                   />
@@ -156,13 +158,13 @@ function Methods({ setModalType }: any) {
                   className={classNames(
                     isExpirationDateValid
                       ? "border-success-color"
-                      : "border-gray",
+                      : "border-base-gray",
                     "xs:w-full md:w-[48%] flex border px-3 py-3 rounded-lg"
                   )}
                 >
                   <legend className="px-3">Expiration Date</legend>
                   <input
-                    className="bg-base-black text-gray px-3 outline-none"
+                    className="bg-base-black text-base-gray px-3 outline-none"
                     type="text"
                     placeholder="MM/YY"
                     value={expirationDate}
@@ -174,10 +176,10 @@ function Methods({ setModalType }: any) {
               </div>
 
               <div className="w-full flex xs:flex-col md:flex-row flex items-center justify-between mb-4">
-                <fieldset className="xs:w-full md:w-[48%] flex border px-3 py-3 border-gray rounded-lg">
+                <fieldset className="xs:w-full md:w-[48%] flex border px-3 py-3 border-base-gray rounded-lg">
                   <legend className="px-3">Card Security Code</legend>
                   <input
-                    className="bg-base-black text-gray px-3 outline-none"
+                    className="bg-base-black text-base-gray px-3 outline-none"
                     type="text"
                     placeholder="***"
                     maxLength={3}
@@ -186,8 +188,8 @@ function Methods({ setModalType }: any) {
                 </fieldset>
 
                 <div className="xs:w-full md:w-[48%] flex items-start justify-between xs:mt-4 md:mt-0">
-                  <InformationCircleIcon className="text-gray w-[8%]" />
-                  <p className="text-gray text-sm w-[90%]">
+                  <InformationCircleIcon className="text-base-gray w-[8%]" />
+                  <p className="text-base-gray text-sm w-[90%]">
                     The card security code (CSC) is usually a 3 or 4 - digit
                     number. The CSC is typically printed on the back of a credit
                     card.
@@ -197,7 +199,7 @@ function Methods({ setModalType }: any) {
             </div>
           </div>
 
-          <div className="flex items-center text-sm text-gray mt-7">
+          <div className="flex items-center text-sm text-base-gray mt-7">
             <Image src={protect} className="mr-4" alt="" />
             <p className="">
               We protect your payment information using encryption to provide

@@ -30,14 +30,14 @@ function NewsItem({
             <h3 className="text-2xl font-bold">{data.fields.title}</h3>
           </Link>
           <h5 className="text-base-yellow ">{data.fields.subTitle}</h5>
-          <p className="text-gray">{data.fields.shortDescription} ...</p>
+          <p className="text-base-gray">{data.fields.shortDescription} ...</p>
         </div>
         <div className="w-full flex justify-between  my-3">
           <Link href="#" className="border border-base-gray rounded py-3 px-7">
             Mehr
           </Link>
           <div className="flex justify-between items-center w-1/5">
-            <span className="text-gray">Teilen</span>
+            <span className="text-base-gray">Teilen</span>
             <Link href="#" className="text-base-yellow ">
               <FaTwitter />
             </Link>

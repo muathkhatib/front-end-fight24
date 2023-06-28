@@ -39,7 +39,7 @@ export default function TicketCard({ data, lng }: any) {
   );
 
   return (
-    <div className="border border-gray mb-20 rounded-lg overflow-hidden">
+    <div className="border border-base-gray mb-20 rounded-lg overflow-hidden">
       <div className="w-full h-3/5 ">
         <img
           src={`https:${data.fields.ticketCover?.fields?.file?.url}`}
@@ -60,7 +60,7 @@ export default function TicketCard({ data, lng }: any) {
             {hour}:{minutes}
           </h4>
         </div>
-        <div className="text-gray my-2">
+        <div className="text-base-gray my-2">
           <span className="mr-4">
             Einlass: {hour + data?.fields.enteringTime}:{minutes} CET
           </span>

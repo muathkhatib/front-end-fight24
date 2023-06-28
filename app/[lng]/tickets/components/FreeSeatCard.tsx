@@ -57,7 +57,7 @@ function FreeSeatCard({
             <MinusIcon
               onClick={() => seatsHandler({ type: "minus" })}
               className={classNames(
-                numberOfSeats === 0 ? "text-gray" : "text-white",
+                numberOfSeats === 0 ? "text-base-gray" : "text-white",
                 "w-5 h-5 font-bold text-sm cursor-pointer"
               )}
             />

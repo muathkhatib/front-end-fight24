@@ -48,12 +48,12 @@ export default function EventItem({ data }: any) {
 
       <div className="mt-6">
         {data.fields.availability && (
-          <span className="text-gray">
+          <span className="text-base-gray">
             AVAILABLE: {data.fields.availability}
           </span>
         )}
         {data.fields.reLivePrice && data.fields.onDemand48hrs ? (
-          <div className="flex text-gray">
+          <div className="flex text-base-gray">
             {data.fields.reLivePrice && (
               <h5>
                 RE-LIVE NEXT DAY:{" "}
@@ -82,10 +82,10 @@ export default function EventItem({ data }: any) {
         </button>
         <div className="flex items-center">
           <div className="flex">
-            <span className="text-gray mr-4">Teilen</span>
-            <FaTwitter className="w-6 h-6  mr-4 text-gray" />
-            <FaFacebookF className="w-6 h-6  mr-4 text-gray" />
-            <FaInstagram className="w-6 h-6 mr-6 text-gray" />
+            <span className="text-base-gray mr-4">Teilen</span>
+            <FaTwitter className="w-6 h-6  mr-4 text-base-gray" />
+            <FaFacebookF className="w-6 h-6  mr-4 text-base-gray" />
+            <FaInstagram className="w-6 h-6 mr-6 text-base-gray" />
           </div>
           <div className="w-[138px] h-[47px]">
             <Image

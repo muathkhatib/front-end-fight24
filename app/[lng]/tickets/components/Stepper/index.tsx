@@ -21,7 +21,9 @@ function Stepper({ children, stepsNames, stepNumber }: Props) {
               <li
                 key={name}
                 className={classNames(
-                  index + 1 === stepNumber ? "text-base-yellow" : "text-gray",
+                  index + 1 === stepNumber
+                    ? "text-base-yellow"
+                    : "text-base-gray",
                   "flex items-center space-x-2.5"
                 )}
               >

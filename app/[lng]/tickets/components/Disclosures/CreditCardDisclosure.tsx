@@ -51,12 +51,12 @@ function CreditCardDisclosure({ open }: { open: boolean }) {
     setIsCardNumberValid(validation.isValid);
   };
   return (
-    <div className="border border-gray rounded-lg p-5 my-4">
+    <div className="border border-base-gray rounded-lg p-5 my-4">
       <Disclosure.Button className="flex items-center justify-between w-full">
         <div className="flex items-center">
           <CheckCircleIcon
             className={classNames(
-              open ? "text-[#0A7AFF]" : "text-gray",
+              open ? "text-[#0A7AFF]" : "text-base-gray",
               "w-6 h-6 mr-4"
             )}
           />
@@ -72,19 +72,19 @@ function CreditCardDisclosure({ open }: { open: boolean }) {
         </div>
         <div className="">
           {open ? (
-            <MinusIcon className="w-[58px] h-[58px] text-gray" />
+            <MinusIcon className="w-[58px] h-[58px] text-base-gray" />
           ) : (
-            <PlusIcon className="w-[58px] h-[58px] text-gray" />
+            <PlusIcon className="w-[58px] h-[58px] text-base-gray" />
           )}
         </div>
       </Disclosure.Button>
       <Disclosure.Panel>
         <form className="flex flex-wrap justify-between mt-5">
-          <fieldset className="xs:w-full md:w-[48%] border border-gray px-3 py-3 rounded-lg">
-            <legend className="px-3 text-gray">Card number</legend>
+          <fieldset className="xs:w-full md:w-[48%] border border-base-gray px-3 py-3 rounded-lg">
+            <legend className="px-3 text-base-gray">Card number</legend>
             <div className=" flex items-center justify-between">
               <input
-                className="bg-base-black text-gray px-3 outline-none"
+                className="bg-base-black text-base-gray px-3 outline-none"
                 type="text"
                 placeholder="1234 5678 9101 3456"
                 maxLength={19} // Including spaces, the maximum length is 19
@@ -92,17 +92,17 @@ function CreditCardDisclosure({ open }: { open: boolean }) {
               />
               <CheckCircleOutLineIcon
                 className={classNames(
-                  isCardNumberValid ? "text-success-color" : "text-gray",
+                  isCardNumberValid ? "text-success-color" : "text-base-gray",
                   "w-6 h-6"
                 )}
               />
             </div>
           </fieldset>
-          <fieldset className="xs:w-full md:w-[48%] border px-3 py-3 border-gray rounded-lg">
-            <legend className="px-3 text-gray">Expiration Date</legend>
+          <fieldset className="xs:w-full md:w-[48%] border px-3 py-3 border-base-gray rounded-lg">
+            <legend className="px-3 text-base-gray">Expiration Date</legend>
             <div className=" flex items-center justify-between">
               <input
-                className="bg-base-black text-gray px-3 outline-none"
+                className="bg-base-black text-base-gray px-3 outline-none"
                 type="text"
                 placeholder="MM/YY"
                 maxLength={5} // MM/YY format has a maximum length of 5 characters
@@ -110,18 +110,18 @@ function CreditCardDisclosure({ open }: { open: boolean }) {
               />
             </div>
           </fieldset>
-          <fieldset className="xs:w-full md:w-[48%] border px-3 py-3 border-gray rounded-lg mt-5">
-            <legend className="px-3 text-gray">Card Security Code</legend>
+          <fieldset className="xs:w-full md:w-[48%] border px-3 py-3 border-base-gray rounded-lg mt-5">
+            <legend className="px-3 text-base-gray">Card Security Code</legend>
             <div className=" flex items-center justify-between">
               <input
-                className="w-[95%] bg-base-black text-gray px-3 outline-none"
+                className="w-[95%] bg-base-black text-base-gray px-3 outline-none"
                 type="password"
                 placeholder="***"
                 required
               />
               <CheckCircleOutLineIcon
                 className={classNames(
-                  false ? "text-success-color" : "text-gray",
+                  false ? "text-success-color" : "text-base-gray",
                   "w-6 h-6"
                 )}
               />

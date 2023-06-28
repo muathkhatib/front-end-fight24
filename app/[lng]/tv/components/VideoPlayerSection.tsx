@@ -36,7 +36,7 @@ function VideoPlayerSection({ data }: Props) {
         />
       </div>
       <div className="pl-8 xs:mt-4 md:mt-0">
-        <span className="text-gray">{data.fields.championName}</span>
+        <span className="text-base-gray">{data.fields.championName}</span>
         <div className="flex justify-between xs:flex-col md:flex-row xs:items-start md:items-center">
           <h1 className="text-5xl font-black">
             {data.fields.title}
@@ -45,10 +45,10 @@ function VideoPlayerSection({ data }: Props) {
             </span>
           </h1>
           <div className="flex xs:mt-4 md:mt-0">
-            <span className="text-gray mr-4">Teilen</span>
-            <FaTwitter className="w-6 h-6  mr-4 text-gray" />
-            <FaFacebookF className="w-6 h-6  mr-4 text-gray" />
-            <FaInstagram className="w-6 h-6 mr-6 text-gray" />
+            <span className="text-base-gray mr-4">Teilen</span>
+            <FaTwitter className="w-6 h-6  mr-4 text-base-gray" />
+            <FaFacebookF className="w-6 h-6  mr-4 text-base-gray" />
+            <FaInstagram className="w-6 h-6 mr-6 text-base-gray" />
           </div>
         </div>
       </div>

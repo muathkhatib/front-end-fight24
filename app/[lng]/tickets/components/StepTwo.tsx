@@ -27,18 +27,18 @@ function StepTwo({ totalAmount, setTotalAmount }: Props) {
           <div className="xs:w-full md:w-[48%] mx-auto ">
             <h5 className="text-base-yellow mb-4">Name</h5>
 
-            <fieldset className="flex border px-3 py-3 border-gray rounded-lg mb-4">
-              <legend className="px-3 text-gray">Name</legend>
+            <fieldset className="flex border px-3 py-3 border-base-gray rounded-lg mb-4">
+              <legend className="px-3 text-base-gray">Name</legend>
               <input
-                className="bg-base-black text-gray px-3 outline-none"
+                className="bg-base-black text-base-gray px-3 outline-none"
                 type="text"
                 placeholder="Geben sie ihre Name"
                 required
               />
             </fieldset>
 
-            <fieldset className="flex items-center justify-between border px-3 py-3 border-gray rounded-lg mb-4">
-              <legend className="px-3 text-gray">Geburtsdatum</legend>
+            <fieldset className="flex items-center justify-between border px-3 py-3 border-base-gray rounded-lg mb-4">
+              <legend className="px-3 text-base-gray">Geburtsdatum</legend>
               <DatePicker
                 placeholderText="dd.mm.yyyy"
                 selected={startDate}
@@ -50,13 +50,13 @@ function StepTwo({ totalAmount, setTotalAmount }: Props) {
                 maxDate={new Date("12-31-2015")}
                 yearDropdownItemNumber={15}
               />
-              <CalendarDaysIcon className="w-6 h-6 text-gray" />
+              <CalendarDaysIcon className="w-6 h-6 text-base-gray" />
             </fieldset>
 
-            <fieldset className="flex border px-3 py-3 border-gray rounded-lg mb-4">
-              <legend className="px-3 text-gray">Firma</legend>
+            <fieldset className="flex border px-3 py-3 border-base-gray rounded-lg mb-4">
+              <legend className="px-3 text-base-gray">Firma</legend>
               <input
-                className="w-full bg-base-black text-gray px-3 outline-none"
+                className="w-full bg-base-black text-base-gray px-3 outline-none"
                 type="text"
                 placeholder="Geben Sie Ihr Unternehmen ein"
                 required
@@ -67,20 +67,20 @@ function StepTwo({ totalAmount, setTotalAmount }: Props) {
           <div className="xs:w-full md:w-[48%] mx-auto ">
             <h5 className="text-base-yellow mb-4">Kontakt</h5>
 
-            <fieldset className="flex border px-3 py-3 border-gray rounded-lg mb-4">
-              <legend className="px-3 text-gray">E-Mailadresse</legend>
+            <fieldset className="flex border px-3 py-3 border-base-gray rounded-lg mb-4">
+              <legend className="px-3 text-base-gray">E-Mailadresse</legend>
               <input
-                className="w-full bg-base-black text-gray px-3 outline-none"
+                className="w-full bg-base-black text-base-gray px-3 outline-none"
                 type="text"
                 placeholder="Geben sie ihre E-Mailadresse ein"
                 required
               />
             </fieldset>
             <div>
-              <fieldset className="flex border px-3 py-3 border-gray rounded-lg mb-4">
-                <legend className="px-3 text-gray">Mobiltelefon</legend>
+              <fieldset className="flex border px-3 py-3 border-base-gray rounded-lg mb-4">
+                <legend className="px-3 text-base-gray">Mobiltelefon</legend>
                 <input
-                  className="w-full bg-base-black text-gray px-3 outline-none"
+                  className="w-full bg-base-black text-base-gray px-3 outline-none"
                   type="text"
                   placeholder="Geben sie ihre Mobiltelefon"
                   required
@@ -92,50 +92,52 @@ function StepTwo({ totalAmount, setTotalAmount }: Props) {
           <div className="xs:w-full md:w-[48%] mx-auto ">
             <h5 className="text-base-yellow mb-4">Kontakt</h5>
 
-            <fieldset className="flex border px-3 py-3 border-gray rounded-lg mb-4">
-              <legend className="px-3 text-gray">Straße und Hausnummer</legend>
+            <fieldset className="flex border px-3 py-3 border-base-gray rounded-lg mb-4">
+              <legend className="px-3 text-base-gray">
+                Straße und Hausnummer
+              </legend>
               <input
-                className="w-full bg-base-black text-gray px-3 outline-none"
+                className="w-full bg-base-black text-base-gray px-3 outline-none"
                 type="text"
                 placeholder="Straße und Hausnummer"
                 required
               />
             </fieldset>
 
-            <fieldset className="flex border px-3 py-3 border-gray rounded-lg mb-4">
-              <legend className="px-3 text-gray">Postleitzahl</legend>
+            <fieldset className="flex border px-3 py-3 border-base-gray rounded-lg mb-4">
+              <legend className="px-3 text-base-gray">Postleitzahl</legend>
               <input
-                className="w-full bg-base-black text-gray px-3 outline-none"
+                className="w-full bg-base-black text-base-gray px-3 outline-none"
                 type="text"
                 placeholder="Postleitzahl"
                 required
               />
             </fieldset>
 
-            <fieldset className="flex border px-3 py-3 border-gray rounded-lg mb-4">
-              <legend className="px-3 text-gray">Stadt</legend>
+            <fieldset className="flex border px-3 py-3 border-base-gray rounded-lg mb-4">
+              <legend className="px-3 text-base-gray">Stadt</legend>
               <input
-                className="w-full bg-base-black text-gray px-3 outline-none"
+                className="w-full bg-base-black text-base-gray px-3 outline-none"
                 type="text"
                 placeholder="Stadt"
                 required
               />
             </fieldset>
 
-            <fieldset className="flex border px-3 py-3 border-gray rounded-lg mb-4">
-              <legend className="px-3 text-gray">Bundesland</legend>
+            <fieldset className="flex border px-3 py-3 border-base-gray rounded-lg mb-4">
+              <legend className="px-3 text-base-gray">Bundesland</legend>
               <input
-                className="w-full bg-base-black text-gray px-3 outline-none"
+                className="w-full bg-base-black text-base-gray px-3 outline-none"
                 type="text"
                 placeholder="Bundesland"
                 required
               />
             </fieldset>
 
-            <fieldset className="flex border px-3 py-3 border-gray rounded-lg mb-4">
-              <legend className="px-3 text-gray">Land</legend>
+            <fieldset className="flex border px-3 py-3 border-base-gray rounded-lg mb-4">
+              <legend className="px-3 text-base-gray">Land</legend>
               <input
-                className="w-full bg-base-black text-gray px-3 outline-none"
+                className="w-full bg-base-black text-base-gray px-3 outline-none"
                 type="text"
                 placeholder="Land"
                 required

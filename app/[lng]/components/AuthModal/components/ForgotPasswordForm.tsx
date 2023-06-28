@@ -33,7 +33,7 @@ function ForgotPassword() {
               placeholder="Enter your email"
               onChange={(e) => setEmailReset(e.target.value)}
               required
-              className="mt-2 block w-full rounded-lg text-gray shadow-sm bg-base-black placeholder:text-gray sm:text-sm sm:leading-6 p-5 border border-gray outline-none"
+              className="mt-2 block w-full rounded-lg text-base-gray shadow-sm bg-base-black placeholder:text-base-gray sm:text-sm sm:leading-6 p-5 border border-base-gray outline-none"
             />
           </div>
 
@@ -48,7 +48,7 @@ function ForgotPassword() {
         </form>
         <div
           onClick={() => dispatch(setAuthModalType("login"))}
-          className="w-full text-gray text-center px-5 py-6 cursor-pointer"
+          className="w-full text-base-gray text-center px-5 py-6 cursor-pointer"
         >
           TO LOGIN PAGE
         </div>

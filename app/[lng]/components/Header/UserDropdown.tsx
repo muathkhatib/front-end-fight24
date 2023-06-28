@@ -10,10 +10,10 @@ export default function UserDropdown() {
   return (
     <Menu
       as="div"
-      className="relative inline-block text-left bg-base-black border border-gray rounded"
+      className="relative inline-block text-left bg-base-black border border-base-gray rounded"
     >
       <div>
-        <Menu.Button className="bg-[#141414] inline-flex w-full justify-center gap-x-1.5 rounded-md bg-base-black px-3 py-2 shadow-sm hover:bg-gray-50 text-gray">
+        <Menu.Button className="bg-[#141414] inline-flex w-full justify-center gap-x-1.5 rounded-md bg-base-black px-3 py-2 shadow-sm hover:bg-gray-50 text-base-gray">
           Anmelden
         </Menu.Button>
       </div>
@@ -29,9 +29,9 @@ export default function UserDropdown() {
       >
         <Menu.Items className="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-base-black shadow-lg ring-1 ring-gray ring-opacity-5 focus:outline-none border border-[#373232] overflow-hidden ">
           <div className="py-1 bg-base-black ">
-            <div className="px-4 py-3 text-sm text-gray-900 border-b-[0.5px] border-b-gray">
+            <div className="px-4 py-3 text-sm text-base-gray-900 border-b-[0.5px] border-b-gray">
               <div className="font-medium truncate flex items-center">
-                <UserIcon className="text-gray w-6 h-6 mr-2" />
+                <UserIcon className="text-base-gray w-6 h-6 mr-2" />
                 <span>{authInfo?.email}</span>
               </div>
             </div>
@@ -40,7 +40,9 @@ export default function UserDropdown() {
                 <a
                   href="#"
                   className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    active
+                      ? "bg-gray-100 text-base-gray-900"
+                      : "text-base-gray-700",
                     "block px-4 py-2 text-sm hover:text-base-yellow pl-[50px]"
                   )}
                 >
@@ -53,7 +55,9 @@ export default function UserDropdown() {
                 <a
                   href="#"
                   className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    active
+                      ? "bg-gray-100 text-base-gray-900"
+                      : "text-base-gray-700",
                     "block px-4 py-2 text-sm hover:text-base-yellow pl-[50px]"
                   )}
                 >
@@ -66,7 +70,9 @@ export default function UserDropdown() {
                 <a
                   href="#"
                   className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    active
+                      ? "bg-gray-100 text-base-gray-900"
+                      : "text-base-gray-700",
                     "block px-4 py-2 text-sm hover:text-base-yellow pl-[50px]"
                   )}
                 >
@@ -83,7 +89,9 @@ export default function UserDropdown() {
                     window.location.reload();
                   }}
                   className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                    active
+                      ? "bg-gray-100 text-base-gray-900"
+                      : "text-base-gray-700",
                     "block w-full px-4 py-2 text-left text-sm hover:text-base-yellow border-t-[0.5px] border-t-gray pl-[50px]"
                   )}
                 >
