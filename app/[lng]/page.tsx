@@ -89,14 +89,20 @@ async function Page({ params: { lng } }: HomePageProps) {
         ))}
       </ListCardsSection>
 
-      {listSections.map((sectionName) => (
-        <ListCardsSection key={sectionName} title={sectionName}>
-          {videosFilterHandler({
+      {listSections.map(
+        (sectionName) =>
+          videosFilterHandler({
             videosList: freeLatestVideos,
             matchType: sectionName,
-          })}
-        </ListCardsSection>
-      ))}
+          }).length > 0 && (
+            <ListCardsSection key={sectionName} title={sectionName}>
+              {videosFilterHandler({
+                videosList: freeLatestVideos,
+                matchType: sectionName,
+              })}
+            </ListCardsSection>
+          )
+      )}
 
       <div className="my-24 flex items-center justify-center">
         <Link

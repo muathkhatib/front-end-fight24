@@ -28,9 +28,11 @@ function HomeBanner({ upComingFights }: { upComingFights: any }): JSX.Element {
       <Flowbite theme={{ theme: customTheme }}>
         <div className="">
           <Carousel>
-            {upComingFights.slice(0, 4).map((item: any) => (
-              <CarouselChild key={item.sys.id} item={item} />
-            ))}
+            {upComingFights
+              .filter((e: any) => !!e.fields.bannerItem)
+              .map((item: any) => (
+                <CarouselChild key={item.sys.id} item={item} />
+              ))}
           </Carousel>
         </div>
       </Flowbite>

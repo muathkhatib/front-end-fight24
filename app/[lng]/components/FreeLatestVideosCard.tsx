@@ -16,15 +16,17 @@ function FreeLatestVideosCard({ data, showTypeName }: Props) {
     <div className="flex flex-col items-center justify-center">
       <div className="flex-shrink-0 border border-light-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[296px] mb-2">
         <div className="h-1/2 relative overflow-hidden">
-          <span
-            className="absolute top-0 left-0 z-[-5] py-1 px-3"
-            style={{
-              backgroundColor: data.fields.tagColor,
-              color: data.fields.tagTextColor,
-            }}
-          >
-            {data.fields.tagName.toUpperCase()}
-          </span>
+          {data.fields.tagName && (
+            <span
+              className="absolute top-0 left-0 z-[-5] py-1 px-3"
+              style={{
+                backgroundColor: data.fields.tagColor,
+                color: data.fields.tagTextColor,
+              }}
+            >
+              {data.fields.tagName.toUpperCase()}
+            </span>
+          )}
           <img
             src={
               data?.fields?.previewImage?.fields?.file?.url

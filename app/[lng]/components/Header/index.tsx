@@ -234,7 +234,7 @@ const Header: React.FC<LNG> = ({ lng }) => {
           <div className="flex items-center justify-between overflow-x-auto">
             {nestedList.map(({ title, to }) => (
               <Link
-                href={`/${to}`}
+                href={`${lng}/${to}`}
                 key={to}
                 className="text-base-yellow xs:text-xs md:text-base xs:pt-6 md:pt-6 xs:pb-[10px] md:pb-6 mx-4 hover:border-b-2 border-b-base-yellow"
               >

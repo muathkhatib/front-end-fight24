@@ -109,7 +109,7 @@ export interface IFreeLatestVideosFields {
   tagColor?: string | undefined;
 
   /** Tag Name */
-  tagName: string;
+  tagName?: string | undefined;
 
   /** Tag Text Color */
   tagTextColor?: string | undefined;
@@ -137,6 +137,7 @@ export interface IFreeLatestVideosFields {
     | "Ringen"
     | "Show"
     | "Talk"
+    | "Royal FC"
   )[];
 
   /** Event Date */
@@ -147,6 +148,9 @@ export interface IFreeLatestVideosFields {
 
   /** Video/Stream URL */
   videoStreamUrl?: string | undefined;
+
+  /** Recommended */
+  recommended?: boolean | undefined;
 }
 
 export interface IFreeLatestVideos extends Entry<IFreeLatestVideosFields> {
@@ -241,17 +245,17 @@ export interface INewsFields {
   /** Article Banner Image  */
   image: Asset;
 
-  /** author */
-  author: IAuthors;
-
-  /** article content */
-  articleContent: Document;
-
   /** Card Image */
   cardImage: Asset;
 
   /** Short Description */
   shortDescription: string;
+
+  /** author */
+  author: IAuthors;
+
+  /** article content */
+  articleContent: Document;
 }
 
 export interface INews extends Entry<INewsFields> {
@@ -492,6 +496,9 @@ export interface IUpComingFightsFields {
 
   /** Address Name */
   addressName: string;
+
+  /** Banner Item */
+  bannerItem?: boolean | undefined;
 }
 
 export interface IUpComingFights extends Entry<IUpComingFightsFields> {

@@ -17,22 +17,23 @@ function NewsItem({
 }) {
   const testText = documentToReactComponents(data?.fields?.articleContent);
   return (
-    <div className="w-[48%] my-4 rounded border border-gray ">
-      <Image
+    <div className="w-[48%] my-4 rounded border border-base-gray ">
+      <img
         src={`https:${data.fields.image.fields.file.url}`}
         alt={data.fields.image.fields.title}
-        width={data.fields.image.fields.file.details.image.width}
-        height={data.fields.image.fields.file.details.image.height}
+        className="w-full h-1/2 object-cover"
       />
-      <div className="px-2">
-        <span className="text-base-yellow ">23.11.22</span>
-        <Link href={`/${lng}/news/${data.sys.id}`}>
-          <h3 className="text-2xl font-bold">{data.fields.title}</h3>
-        </Link>
-        <h5 className="text-base-yellow ">{data.fields.subTitle}</h5>
-        <p className="text-gray">{data.fields.shortDescription} ...</p>
+      <div className="p-[14px] h-1/2 flex flex-col justify-between">
+        <div className="">
+          <span className="text-base-yellow ">23.11.22</span>
+          <Link href={`/${lng}/news/${data.sys.id}`}>
+            <h3 className="text-2xl font-bold">{data.fields.title}</h3>
+          </Link>
+          <h5 className="text-base-yellow ">{data.fields.subTitle}</h5>
+          <p className="text-gray">{data.fields.shortDescription} ...</p>
+        </div>
         <div className="w-full flex justify-between  my-3">
-          <Link href="#" className="border border-gray rounded py-3 px-7">
+          <Link href="#" className="border border-base-gray rounded py-3 px-7">
             Mehr
           </Link>
           <div className="flex justify-between items-center w-1/5">
