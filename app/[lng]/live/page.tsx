@@ -1,12 +1,14 @@
 import React from "react";
 import HomeBanner from "@/components/HomePage/HomeBanner";
-import ContentService from "../../../src/utils/content-service";
+import ContentService from "@contentfulClient";
 import ListCardsSection from "@/components/ListCardsSection";
 import UpcomingFightCard from "@/components/UpcomingFightCard";
 import { liveSections } from "@/utils/statics";
 import { yellowLiveStreamIcon } from "@/assets/images";
 import { useTranslation } from "../../i18n";
 import LiveHandler from "./components/LiveHandler";
+
+export const revalidate = 10;
 
 interface Props {
   params: {
@@ -15,21 +17,21 @@ interface Props {
 }
 
 export default async function page({ params: { lng } }: Props) {
-  const [upcomingFights, live, advertisements] = await Promise.all([
-    ContentService.instance.getEntriesByType("upComingFights"),
-    ContentService.instance.getEntriesByType("live"),
-    ContentService.instance.getEntriesByType("advertisements"),
+  const [upComingFights, live, advertisements] = await Promise.all([
+    ContentService.instance.getEntriesByType("upComingFights", lng),
+    ContentService.instance.getEntriesByType("live", lng),
+    ContentService.instance.getEntriesByType("advertisements", lng),
   ]);
   const { t } = await useTranslation(lng, "home-page");
 
   return (
     <>
-      <HomeBanner />
+      <HomeBanner upComingFights={upComingFights} />
       <ListCardsSection
         icon={yellowLiveStreamIcon}
         title={t("upcomingFightsTitle")}
       >
-        {upcomingFights.map((item) => (
+        {upComingFights.map((item: any) => (
           <UpcomingFightCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>

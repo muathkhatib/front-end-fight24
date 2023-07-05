@@ -1,12 +1,12 @@
 "use client";
-import React, { useEffect, useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import { ShareIcon, ClockIcon } from "@heroicons/react/24/outline";
 import { toggleModal as paymentToggleModal } from "@/store/Features/payment/paymentSlice";
 import { toggleModal as authToggleModal } from "@/store/Features/auth/authSlice";
 import { RootState } from "@/store";
+import { freeLatestVideoCardItem } from "@/assets/images";
 
 interface Props {
   data: any;
@@ -39,7 +39,11 @@ function UpcomingFightCard({ data, matchDate }: Props) {
       <div className="flex-shrink-0 border border-light-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[324px] ">
         <div className="h-1/2">
           <img
-            src={`https:${data?.fields?.fightImage?.fields?.file?.url}`}
+            src={
+              data?.fields?.fightImage?.fields?.file?.url
+                ? `https:${data?.fields?.fightImage?.fields?.file?.url}`
+                : freeLatestVideoCardItem
+            }
             className="w-full h-full object-cover object-top"
             alt="Card item name"
           />
@@ -53,7 +57,10 @@ function UpcomingFightCard({ data, matchDate }: Props) {
               <ClockIcon className="w-4 mx-1" /> {time} CET
             </div>
           </div>
-          <Link href={`events/${data?.sys?.id}`} className="font-bold text-2xl">
+          <Link
+            href={`/events/${data?.sys?.id}`}
+            className="font-bold text-2xl"
+          >
             {data?.fields?.title}
           </Link>
           <div className="flex justify-between mt-2">

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import { languagesIcon } from "../../assets/images";
-import { languages } from "../../../i18n/settings";
+import { i18n } from "@i18n/settings";
 import { useRouter } from "next/navigation";
 import { LNG } from "../../../../src/@types/generic";
 import { classNames } from "../../utils";
@@ -15,27 +15,19 @@ export default function LanguageSelectBox({ lng }: LNG): JSX.Element {
   const { isXs, isSm, isMd, isLg, active } = useBreakpoints();
 
   return (
-    <Listbox
-      value={lng.toUpperCase()}
-      onChange={(value) => {
-        console.log(router);
-        return router.push(value.toLowerCase());
-      }}
-    >
+    <Listbox value={lng.toUpperCase()} onChange={(value) => router.push(value)}>
       {({ open }) => (
         <>
-          <div className="relative mt-2">
-            <Listbox.Button className="relative cursor-default py-1.5 pl-3 pr-10 text-left text-gray-900 flex items-center justify-center  sm:text-sm sm:leading-6">
+          <div className="">
+            <Listbox.Button className="relative cursor-default flex items-center">
               {isXs || isSm ? null : <Image src={languagesIcon} alt="" />}
-              <span className="flex items-center">
-                <span className="ml-3 block truncate">{lng.toUpperCase()}</span>
-              </span>
-              <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+              <div className="flex items-center ml-1">
+                <span className="block truncate">{lng.toUpperCase()}</span>
                 <ChevronDownIcon
-                  className="h-5 w-5 text-gray-400"
+                  className="h-5 w-5 text-base-gray pointer-events-none"
                   aria-hidden="true"
                 />
-              </span>
+              </div>
             </Listbox.Button>
 
             <Transition
@@ -45,41 +37,27 @@ export default function LanguageSelectBox({ lng }: LNG): JSX.Element {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto py-1 text-base sm:text-sm">
-                {languages.map((item) => (
+              <Listbox.Options className="absolute top-16 z-20 overflow-auto py-4 border border-base-gray flex flex-col items-center justify-between bg-base-black rounded">
+                {i18n.locales.map((item) => (
                   <Listbox.Option
                     key={item}
-                    className={({ active }) =>
-                      classNames(
-                        active ? "bg-indigo-600 text-white" : "text-gray-900",
-                        "relative cursor-default select-none py-2 pl-3 pr-9"
-                      )
-                    }
-                    value={item.toUpperCase()}
+                    className="cursor-pointer select-none px-4"
+                    value={item}
                   >
                     {({ selected, active }) => (
                       <>
-                        <div className="flex items-center">
+                        <div className="flex items-center mb-[10px]">
                           <span
                             className={classNames(
-                              selected ? "font-semibold" : "font-normal",
-                              "ml-3 block truncate"
+                              selected
+                                ? "font-semibold text-base-yellow"
+                                : "font-normal",
+                              "block truncate"
                             )}
                           >
                             {item.toUpperCase()}
                           </span>
                         </div>
-
-                        {selected ? (
-                          <span
-                            className={classNames(
-                              active ? "text-white" : "text-indigo-600",
-                              "absolute inset-y-0 right-0 flex items-center pr-4"
-                            )}
-                          >
-                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                          </span>
-                        ) : null}
                       </>
                     )}
                   </Listbox.Option>

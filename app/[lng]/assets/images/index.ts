@@ -31,8 +31,5 @@ export const eye = require("./eye.svg");
 export const twitter = require("./twitter-icon.svg");
 export const linkedin = require("./Linkedin Icon.svg");
 export const email = require("./Email Icon.svg");
-
-import bannerOne from "./home-page-banners/2.jpg";
-export const banners = {
-  bannerOne,
-};
+export const openContentBanner = require("./open-content-banner.jpg");
+export const eventSits = require("./event_sits.jpg");

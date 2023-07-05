@@ -2,10 +2,12 @@
 
 module.exports = {
   content: [
+    "./node_modules/flowbite-react/**/*.js",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  plugins: [require("flowbite/plugin")],
   theme: {
     backgroundSize: {
       "80%": "80%",
@@ -33,7 +35,7 @@ module.exports = {
       "secondary-dark-gray": "#373232",
       "light-gray": "#636363",
       "dark-blue": "#022D51",
-      gray: "#8F8F8F",
+      "base-gray": "#8F8F8F",
       "success-color": "#229718",
     },
   },

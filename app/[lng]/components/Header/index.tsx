@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
@@ -45,17 +45,17 @@ const Header: React.FC<LNG> = ({ lng }) => {
     <>
       <button
         onClick={() => setShowSearchBar((c) => !c)}
-        className="h-full text-gray px-[20px] py-[10px] items-center justify-center flex rounded border border-gray mx-1"
+        className="rounded py-2 xs:px-0 md:px-5 xs:border-0 md:border md:border-base-gray text-base-gray flex items-center"
       >
-        <MagnifyingGlassIcon className="h-6 w-6 mx-1" />
+        <MagnifyingGlassIcon className="h-6 w-6 xs:mr-0 md:mr-2" />
         {!isXs && !isSm && "Suchen"}
       </button>
 
       {showSearchBar ? (
-        <div className="bg-base-black xs:w-screen md:w-[52vw] absolute right-0 top-28 rounded-lg p-1 shadow-md">
+        <div className="bg-base-black xs:w-screen md:w-[52vw] absolute right-0 z-20 top-28 rounded-lg p-1 shadow-md">
           <div className="px-2 mb-4">
             <input
-              className="bg-base-black placeholder‑gray border rounded px-4 py-2 w-full outline-0 ring-0"
+              className="bg-base-black placeholder‑base-gray border rounded px-4 py-2 w-full outline-0 ring-0"
               placeholder="Look for fighters, fight name or event"
             />
           </div>
@@ -65,17 +65,17 @@ const Header: React.FC<LNG> = ({ lng }) => {
               <div>
                 <h5 className="text-base-yellow font-bold">Recent EVENTS</h5>
                 <div className="flex flex-col">
-                  <span className="text-gray">VIDOVIC vs SKOURTIS</span>
-                  <span className="text-gray">NFC 12</span>
-                  <span className="text-gray">UAE Warriors 35</span>
+                  <span className="text-base-gray">VIDOVIC vs SKOURTIS</span>
+                  <span className="text-base-gray">NFC 12</span>
+                  <span className="text-base-gray">UAE Warriors 35</span>
                 </div>
               </div>
               <div>
                 <h5 className="text-base-yellow font-bold">popular searches</h5>
                 <div className="flex flex-col">
-                  <span className="text-gray">VIDOVIC vs SKOURTIS</span>
-                  <span className="text-gray">NFC 12</span>
-                  <span className="text-gray">UAE Warriors 35</span>
+                  <span className="text-base-gray">VIDOVIC vs SKOURTIS</span>
+                  <span className="text-base-gray">NFC 12</span>
+                  <span className="text-base-gray">UAE Warriors 35</span>
                 </div>
               </div>
               <div>
@@ -83,25 +83,25 @@ const Header: React.FC<LNG> = ({ lng }) => {
                   Featured categories
                 </h5>
                 <div className="flex flex-wrap">
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     Kickboxen
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     Boxen
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     MMA
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     Am Beliebtesten
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     GCP 8
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     ROYAL FC
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     NEWS
                   </span>
                 </div>
@@ -111,25 +111,25 @@ const Header: React.FC<LNG> = ({ lng }) => {
                   Featured fighters
                 </h5>
                 <div className="flex flex-wrap">
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     QUEALLY
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     PITBULL2
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     NABIEV
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     SALVATORE PRAHIM
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     DONKERWOLCKE
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     ROYAL FC
                   </span>
-                  <span className="text-gray border border-gray mr-2 my-1 p-2 rounded">
+                  <span className="text-base-gray border border-base-gray mr-2 my-1 p-2 rounded">
                     NEWS
                   </span>
                 </div>
@@ -141,14 +141,11 @@ const Header: React.FC<LNG> = ({ lng }) => {
                 Featured Top Views
               </h5>
               <div className="flex flex-wrap items-end">
-                <FreeLatestVideosCard data={staticCardObject} />
-                <FreeLatestVideosCard data={staticCardObject} />
-                <FreeLatestVideosCard data={staticCardObject} />
-                <FreeLatestVideosCard data={staticCardObject} />
-                <FreeLatestVideosCard data={staticCardObject} />
-                <FreeLatestVideosCard data={staticCardObject} />
-                <FreeLatestVideosCard data={staticCardObject} />
-                <FreeLatestVideosCard data={staticCardObject} />
+                {Array.from({ length: 8 }, (_, i) => (i + 1).toString()).map(
+                  (e) => (
+                    <FreeLatestVideosCard key={e} data={staticCardObject} />
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -158,15 +155,15 @@ const Header: React.FC<LNG> = ({ lng }) => {
   );
 
   const renderLoginButton = () => (
-    <div className="mx-2">
+    <div className="py-1 xs:mx-1 md:mx-2 text-base-gray">
       {!auth ? (
         <button
           onClick={() =>
             auth ? console.log("Logged in") : dispatch(toggleModal())
           }
-          className="h-full text-gray items-center justify-center flex rounded p-1 mx-2 border border-gray"
+          className="rounded border border-base-gray p-2"
         >
-          <UserIcon className="h-full w-6 m-1" />
+          <UserIcon className="w-6 h-6" />
         </button>
       ) : (
         <UserDropdown />
@@ -176,11 +173,11 @@ const Header: React.FC<LNG> = ({ lng }) => {
 
   const renderLiveStreamButton = () => (
     <Link
-      href={`${lng}/live`}
-      className="xs:w-16 sm:w-16 md:w-20 lg:w-20 h-full bg-base-yellow border border-base-yellow text-base-black border flex items-center justify-center rounded py-1"
+      href="/live"
+      className="bg-base-yellow text-base-black rounded px-1 py-1 flex items-center xs:mr-[0.5rem] md:mr-8"
     >
       <Image
-        className="h-[30px] w-[35px] object-cover mr-1"
+        className="h-8 object-cover"
         src={blackLiveStreamIcon}
         alt="Live Stream Icon"
       />
@@ -189,28 +186,32 @@ const Header: React.FC<LNG> = ({ lng }) => {
   );
 
   return (
-    <header className="md:container lg:container py-[18px] h-16 flex sm:flex-col xs:flex-col xs:mb-10 lg:mb-4 sticky">
-      <div className="flex items-center justify-between w-full">
-        <div className="w-1/2 flex items-center">
-          <Link href="/" className="w-[138px] h-[44px]">
-            <Image
-              className="h-full w-full object-contain"
-              src={navLogo}
-              alt="Fight24 Logo"
-            />
-          </Link>
-          {isLg && (
-            <div className="w-5/12 ml-8">
-              <Nav
-                setNestedList={setNestedList}
-                setShowNested={setShowNested}
-                lng={lng}
+    <header className="relative xs:pl-4 p lg:pl-[100px] xs:pr-4 md:pr-8 py-3 bg-base-black">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center">
+          <div className="xs:mr-0 lg:mr-8">
+            <Link href="/">
+              <Image
+                className="w-full xs:h-8 md:h-11 object-contain"
+                src={navLogo}
+                alt="Fight24 Logo"
               />
-            </div>
-          )}
+            </Link>
+          </div>
+          <div>
+            {isLg && (
+              <div>
+                <Nav
+                  setNestedList={setNestedList}
+                  setShowNested={setShowNested}
+                  lng={lng}
+                />
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-between">
           {renderSearchButton()}
           {renderLoginButton()}
           {renderLiveStreamButton()}
@@ -229,13 +230,13 @@ const Header: React.FC<LNG> = ({ lng }) => {
       )}
 
       {showNested && nestedList.length > 0 && (
-        <div className="bg-[#8F8F8F]">
-          <div className="container flex items-center justify-between py-6 z-20">
+        <div className="absolute bg-base-gray xs:-bottom-16 md:-bottom-24 lg:-bottom-16 z-10 w-[92%]">
+          <div className="flex items-center justify-between overflow-x-auto">
             {nestedList.map(({ title, to }) => (
               <Link
                 href={`${lng}/${to}`}
                 key={to}
-                className="text-base-yellow px-3"
+                className="text-base-yellow xs:text-xs md:text-base xs:pt-6 md:pt-6 xs:pb-[10px] md:pb-6 mx-4 hover:border-b-2 border-b-base-yellow"
               >
                 {title}
               </Link>

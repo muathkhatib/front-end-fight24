@@ -1,7 +1,8 @@
+// @ts-nocheck
 import React from "react";
 import Link from "next/link";
 import { useTranslation } from "../i18n";
-import ContentService from "../../src/utils/content-service";
+import ContentService from "@contentfulClient";
 import ListCardsSection from "@/components/ListCardsSection";
 import UpcomingFightCard from "@/components/UpcomingFightCard";
 import FreeLatestVideosCard from "@/components/FreeLatestVideosCard";
@@ -10,6 +11,8 @@ import AdvertisementSection from "@/components/AdvertisementSection";
 import SubscribeSection from "@/components/SubscribeSection";
 import { yellowLiveStreamIcon } from "@/assets/images";
 import HomeBanner from "@/components/HomePage/HomeBanner";
+
+export const revalidate = 10;
 
 interface HomePageProps {
   params: {
@@ -22,11 +25,13 @@ interface VideosFilterHandlerProps {
   matchType: string;
 }
 async function Page({ params: { lng } }: HomePageProps) {
-  const [upcomingFights, freeLatestVideos, advertisements] = await Promise.all([
-    ContentService.instance.getEntriesByType("upComingFights"),
-    ContentService.instance.getEntriesByType("freeLatestVideos"),
-    ContentService.instance.getEntriesByType("advertisements"),
-  ]);
+  const [upComingFights, freeLatestVideos, advertisements, news] =
+    await Promise.all([
+      ContentService.instance.getEntriesByType("upComingFights", lng),
+      ContentService.instance.getEntriesByType("freeLatestVideos", lng),
+      ContentService.instance.getEntriesByType("advertisements", lng),
+      ContentService.instance.getEntriesByType("news", lng),
+    ]);
   const { t } = await useTranslation(lng, "home-page");
 
   const listSections: string[] = ["Boxen", "MMA", "Royal FC"];
@@ -45,12 +50,12 @@ async function Page({ params: { lng } }: HomePageProps) {
 
   return (
     <>
-      <HomeBanner />
+      <HomeBanner upComingFights={upComingFights} />
       <ListCardsSection
         icon={yellowLiveStreamIcon}
         title={t("upcomingFightsTitle")}
       >
-        {upcomingFights.map((item) => (
+        {upComingFights.map((item) => (
           <UpcomingFightCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
@@ -60,16 +65,19 @@ async function Page({ params: { lng } }: HomePageProps) {
           <FreeLatestVideosCard key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
-      {/* @ts-ignore */}
-      <AdvertisementSection data={advertisements[0].fields} />
+
+      <AdvertisementSection
+        data={advertisements}
+        positionName="Home Page Center"
+      />
 
       <ListCardsSection
         title={t("newsTitle")}
         type="secondary"
-        showAllUrl="ddddd"
+        showAllUrl="/news"
       >
-        {[...Array(20).keys()].map((item) => (
-          <NewsCardItem key={item} />
+        {news.map((item) => (
+          <NewsCardItem key={item.sys.id} data={item} />
         ))}
       </ListCardsSection>
 
@@ -81,14 +89,20 @@ async function Page({ params: { lng } }: HomePageProps) {
         ))}
       </ListCardsSection>
 
-      {listSections.map((sectionName) => (
-        <ListCardsSection key={sectionName} title={sectionName}>
-          {videosFilterHandler({
+      {listSections.map(
+        (sectionName) =>
+          videosFilterHandler({
             videosList: freeLatestVideos,
             matchType: sectionName,
-          })}
-        </ListCardsSection>
-      ))}
+          }).length > 0 && (
+            <ListCardsSection key={sectionName} title={sectionName}>
+              {videosFilterHandler({
+                videosList: freeLatestVideos,
+                matchType: sectionName,
+              })}
+            </ListCardsSection>
+          )
+      )}
 
       <div className="my-24 flex items-center justify-center">
         <Link

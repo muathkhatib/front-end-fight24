@@ -21,7 +21,6 @@ export const tvSections: string[] = [
   "Pro Wrestling",
   "Ringen",
   "Show",
-  "Talk",
 ];
 
 export const liveSections: string[] = [

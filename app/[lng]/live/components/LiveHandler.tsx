@@ -28,8 +28,11 @@ function LiveHandler({ liveVideos, advertisements, filteringList }: any) {
           )
         );
       })}
-      {/* @ts-ignore */}
-      <AdvertisementSection data={advertisements[1].fields} />
+
+      <AdvertisementSection
+        data={advertisements}
+        positionName="Live Menu Page Center"
+      />
 
       {filteringList.slice(1).map((e: string) => {
         const videos = videosFilterHandler({ type: e });

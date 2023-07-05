@@ -31,26 +31,26 @@ const Login = () => {
         </p>
 
         <div className="w-full">
-          <button className="w-full border border-gray flex items-center justify-center px-3 py-5 bg-white rounded-lg my-5">
+          <button className="w-full border border-base-gray flex items-center justify-center px-3 py-5 bg-white rounded-lg my-5">
             <FaFacebook className="text-[#0A7AFF] mr-4" />
             <p className="text-base-black">Login with Facebook</p>
           </button>
 
-          <button className="w-full border border-gray flex items-center justify-center px-3 py-5 bg-white rounded-lg my-5">
+          <button className="w-full border border-base-gray flex items-center justify-center px-3 py-5 bg-white rounded-lg my-5">
             <FcGoogle className="mr-4" />
             <p className="text-base-black">Login with Google</p>
           </button>
 
-          <button className="w-full border border-gray flex items-center justify-center px-3 py-5 bg-white rounded-lg my-5">
+          <button className="w-full border border-base-gray flex items-center justify-center px-3 py-5 bg-white rounded-lg my-5">
             <FaApple className="text-base-black mr-4" />
             <p className="text-base-black">Login with Apple</p>
           </button>
         </div>
 
         <div className="w-full flex py-5 items-center justify-between">
-          <div className="w-[45%] border-t border-gray"></div>
-          <span className="self-top h-5 text-gray">or</span>
-          <div className="w-[45%] border-t border-gray"></div>
+          <div className="w-[45%] border-t border-base-gray"></div>
+          <span className="self-top h-5 text-base-gray">or</span>
+          <div className="w-[45%] border-t border-base-gray"></div>
         </div>
 
         <form className="space-y-6 w-full" onSubmit={handleLogin}>
@@ -62,11 +62,11 @@ const Login = () => {
               autoComplete="email"
               placeholder="Enter your email"
               required
-              className="mt-2 block w-full rounded-lg text-gray shadow-sm bg-base-black placeholder:text-gray sm:text-sm sm:leading-6 p-5 border border-gray outline-none"
+              className="mt-2 block w-full rounded-lg text-base-gray shadow-sm bg-base-black placeholder:text-base-gray sm:text-sm sm:leading-6 p-5 border border border-base-gray focus:border-base-gray focus:ring-0"
             />
           </div>
 
-          <div className="flex mt-2 items-center justify-evenly border border-gray rounded-lg p-5">
+          <div className="flex mt-2 items-center justify-evenly border border-base-gray rounded-lg py-3 pr-5">
             <input
               id="password"
               name="password"
@@ -74,16 +74,16 @@ const Login = () => {
               type={isPasswordVisible ? "text" : "password"}
               autoComplete="current-password"
               required
-              className="w-11/12 text-gray shadow-sm bg-base-black placeholder:text-gray sm:text-sm sm:leading-6 outline-none"
+              className="w-11/12 text-base-gray shadow-sm bg-base-black placeholder:text-base-gray sm:text-sm sm:leading-6 border-transparent focus:border-transparent focus:ring-0"
             />
             {isPasswordVisible ? (
               <EyeSlashIcon
-                className="text-gray cursor-pointer w-6 h-6"
+                className="text-base-gray cursor-pointer w-6 h-6"
                 onClick={togglePasswordVisibility}
               />
             ) : (
               <EyeIcon
-                className="text-gray cursor-pointer w-6 h-6"
+                className="text-base-gray cursor-pointer w-6 h-6"
                 onClick={togglePasswordVisibility}
               />
             )}
@@ -104,7 +104,7 @@ const Login = () => {
 
               <span
                 onClick={() => dispatch(setAuthModalType("forgot_password"))}
-                className="text-gray cursor-pointer"
+                className="text-base-gray cursor-pointer"
               >
                 I forgot password
               </span>

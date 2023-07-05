@@ -9,18 +9,18 @@ import Footer from "@/components/Footer";
 import AuthModal from "@/components/AuthModal";
 import PaymentModal from "@/components/PaymentModal";
 
-import { languages } from "../i18n/settings";
-import "./theme/globals.css";
+import { i18n } from "@i18n/settings";
+import "@/theme/globals.css";
 import { Provider } from "./store/provider";
 
 export async function generateStaticParams() {
-  return languages.map((lng) => ({ lng }));
+  return i18n.locales.map((lng) => ({ lng }));
 }
 
 const amisProFont = localFont({
   src: [
     {
-      path: "./assets/fonts/amsi-pro/AmsiProNarw-Regular.otf",
+      path: "./assets/fonts/amsi-pro/AmsiPro-Regular.otf",
       weight: "400",
       style: "normal",
     },

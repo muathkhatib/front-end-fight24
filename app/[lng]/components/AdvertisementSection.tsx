@@ -1,38 +1,65 @@
+// @ts-nocheck
+"use client";
 import React from "react";
+import ReactHtmlParser from "react-html-parser";
 import Link from "next/link";
-import Image from "next/image";
 
 interface Props {
+  positionName: string;
   data: {
-    advertisementUrl: string;
-    advertisementImage: {
-      fields: {
-        file: {
-          url: string;
-          details: {
-            image: {
-              width: number;
+    fields: {
+      adsCode: string;
+      adsType: string;
+      advertismentType: string;
+      redirectTo: string;
+      advertisementImage: {
+        fields: {
+          title: string;
+          file: {
+            title: string;
+            url: string;
+            details: {
+              image: {
+                width: number;
+                height: number;
+              };
             };
           };
         };
       };
-    };
-    imageAlternation: string;
+    }[];
   };
 }
 
-function AdvertisementSection({ data }: Props) {
+function AdvertisementSection({ data, positionName }: Props) {
   return (
-    <div className="container flex items-center justify-center my-16">
-      <Link href={data.advertisementUrl} target="_blank" rel="noopener">
-        <Image
-          src={`https:${data.advertisementImage.fields.file.url}`}
-          alt={data.imageAlternation}
-          className="object-contain  h-[300px]"
-          width={data.advertisementImage.fields.file.details.image.width}
-          height="300"
-        />
-      </Link>
+    <div className="container flex items-center justify-center my-16 h-[300px]">
+      {(data.advertismentType as string) === "code" ? (
+        ReactHtmlParser(data.adsCode)
+      ) : (
+        <>
+          {data.length > 0 &&
+            data
+              .filter(
+                (e: any) =>
+                  e.fields.advertismentPosition.toLowerCase() ===
+                  positionName.toLowerCase()
+              )
+              .map((elm: any) => (
+                <Link
+                  key={elm.sys.id}
+                  href={elm.fields.redirectTo}
+                  target="_blank"
+                >
+                  <img
+                    src={`https:${elm.fields.advertisementImage.fields.file.url}`}
+                    alt={elm.fields.advertisementImage.fields.title}
+                    className="h-full w-auto object-none"
+                  />
+                </Link>
+              ))}
+        </>
+      )}
     </div>
   );
 }
