@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useDispatch } from "react-redux";
 
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
@@ -10,6 +11,7 @@ import { UserIcon } from "@heroicons/react/24/outline";
 import useBreakpoints from "@/hooks/useBreakpoints";
 
 import FreeLatestVideosCard from "@/components/FreeLatestVideosCard";
+import { classNames } from "@/utils";
 
 import { toggleModal } from "@/store/Features/auth/authSlice";
 import { LNG } from "../../../../src/@types/generic";
@@ -32,6 +34,7 @@ interface Link {
 }
 
 const Header: React.FC<LNG> = ({ lng }) => {
+  const searchQuery = useSearchParams().get("q");
   const [showNested, setShowNested] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [nestedList, setNestedList] = useState<NavLink[]>([]);
@@ -155,7 +158,7 @@ const Header: React.FC<LNG> = ({ lng }) => {
   );
 
   const renderLoginButton = () => (
-    <div className="py-1 xs:mx-1 md:mx-2 text-base-gray">
+    <div className="mx-2 text-base-gray">
       {!auth ? (
         <button
           onClick={() =>
@@ -174,10 +177,10 @@ const Header: React.FC<LNG> = ({ lng }) => {
   const renderLiveStreamButton = () => (
     <Link
       href="/live"
-      className="bg-base-yellow text-base-black rounded px-1 py-1 flex items-center xs:mr-[0.5rem] md:mr-8"
+      className="bg-base-yellow text-base-black rounded xs:px-1 xs:py-1 md:px-5 md:py-[6px] flex items-center xs:mr-[0.5rem] md:mr-8"
     >
       <Image
-        className="h-8 object-cover"
+        className="h-8 xs:mr-0 md:mr-[5px] object-cover"
         src={blackLiveStreamIcon}
         alt="Live Stream Icon"
       />
@@ -186,57 +189,63 @@ const Header: React.FC<LNG> = ({ lng }) => {
   );
 
   return (
-    <header className="relative xs:pl-4 p lg:pl-[100px] xs:pr-4 md:pr-8 py-3 bg-base-black">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center">
-          <div className="xs:mr-0 lg:mr-8">
-            <Link href="/">
-              <Image
-                className="w-full xs:h-8 md:h-11 object-contain"
-                src={navLogo}
-                alt="Fight24 Logo"
-              />
-            </Link>
-          </div>
-          <div>
-            {isLg && (
-              <div>
-                <Nav
-                  setNestedList={setNestedList}
-                  setShowNested={setShowNested}
-                  lng={lng}
-                />
-              </div>
-            )}
-          </div>
-        </div>
-
+    <>
+      <header className="relative xs:pl-4 p lg:pl-[100px] xs:pr-4 md:pr-8 py-3 bg-base-black">
         <div className="flex items-center justify-between">
-          {renderSearchButton()}
-          {renderLoginButton()}
-          {renderLiveStreamButton()}
-          <LanguageSelectBox lng={lng} />
-        </div>
-      </div>
+          <div className="flex items-center">
+            <div className="xs:mr-0 lg:mr-8">
+              <Link href="/">
+                <Image
+                  className="w-full xs:h-8 md:h-11 object-contain"
+                  src={navLogo}
+                  alt="Fight24 Logo"
+                />
+              </Link>
+            </div>
+            <div>
+              {isLg && (
+                <div>
+                  <Nav
+                    setNestedList={setNestedList}
+                    setShowNested={setShowNested}
+                    lng={lng}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
 
-      {(isXs || isSm || isMd) && (
-        <div className="w-full mt-2">
-          <Nav
-            setNestedList={setNestedList}
-            setShowNested={setShowNested}
-            lng={lng}
-          />
+          <div className="flex items-center justify-between">
+            {renderSearchButton()}
+            {renderLoginButton()}
+            {renderLiveStreamButton()}
+            <LanguageSelectBox lng={lng} />
+          </div>
         </div>
-      )}
 
+        {(isXs || isSm || isMd) && (
+          <div className="w-full mt-2">
+            <Nav
+              setNestedList={setNestedList}
+              setShowNested={setShowNested}
+              lng={lng}
+            />
+          </div>
+        )}
+      </header>
       {showNested && nestedList.length > 0 && (
-        <div className="absolute bg-base-gray xs:-bottom-16 md:-bottom-24 lg:-bottom-16 z-10 w-[92%]">
-          <div className="flex items-center justify-between overflow-x-auto">
+        <div className="absolute bg-dark-gray z-10 w-screen">
+          <div className="flex items-center justify-evenly overflow-x-auto">
             {nestedList.map(({ title, to }) => (
               <Link
                 href={`${lng}/${to}`}
                 key={to}
-                className="text-base-yellow xs:text-xs md:text-base xs:pt-6 md:pt-6 xs:pb-[10px] md:pb-6 mx-4 hover:border-b-2 border-b-base-yellow"
+                className={classNames(
+                  searchQuery === to.split('q=')[1].toLowerCase()
+                    ? "font-bold"
+                    : "",
+                  "text-base-yellow xs:text-xs md:text-base xs:pt-6 md:pt-6 xs:pb-[10px] md:pb-6 mx-4 hover:border-b-4 border-b-base-yellow"
+                )}
               >
                 {title}
               </Link>
@@ -244,7 +253,7 @@ const Header: React.FC<LNG> = ({ lng }) => {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 };
 

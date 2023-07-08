@@ -62,7 +62,7 @@ const Footer = () => {
           <Link
             key={`${url}-${alt}`}
             href={url}
-            className="mx-4 w-[70px] h-[70px]"
+            className="mr-4"
           >
             <Image src={icon} alt={alt} />
           </Link>

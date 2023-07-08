@@ -33,14 +33,15 @@ async function page({ params: { lng } }: Props) {
           {news.slice(0, 4).map((item) => (
             <NewsItem key={item.sys.id} data={item} lng={lng} />
           ))}
-          <SubscribeSection lng={lng} />
-          {news.slice(4, 8).map((item) => (
-            <NewsItem key={item.sys.id} data={item} lng={lng} />
-          ))}
           <AdvertisementSection
             data={advertisements}
             positionName="News Menu Page Center"
           />
+
+          {news.slice(4, 8).map((item) => (
+            <NewsItem key={item.sys.id} data={item} lng={lng} />
+          ))}
+          <SubscribeSection lng={lng} />
 
           {news.slice(8).map((item) => (
             <NewsItem key={item.sys.id} data={item} lng={lng} />

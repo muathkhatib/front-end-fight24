@@ -19,17 +19,16 @@ function SubscribeSection({ lng }: Props) {
   const handleFormSubmit = useCallback(
     (e: any) => {
       e.preventDefault();
-      // Do Somthing Here
     },
     [email]
   );
 
   return (
-    <div className="w-[55%]  mx-auto px-4 py-8">
-      <h1 className="text-5xl font-black mb-4 mx-auto text-center">
+    <div className="xs:w-full md:w-[55%] mx-auto px-4 py-8">
+      <h1 className="xs:text-2xl  md:text-5xl font-black mb-4 mx-auto text-center">
         {t("subscribeSectionTitle").toUpperCase()}
       </h1>
-      <form onSubmit={handleFormSubmit} className="flex flex-col items-center">
+      <form onSubmit={handleFormSubmit} className="xs:w-full md:w-[566px] mx-auto flex flex-col items-center">
         <label htmlFor="email" className="block font-medium mb-2 self-start">
           {t("emailAddress")}
         </label>
