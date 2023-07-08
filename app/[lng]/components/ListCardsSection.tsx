@@ -44,7 +44,7 @@ function ListCardsSection({
       <div
         className={classNames(
           type === "secondary" ? "bg-base-yellow" : "",
-          "pl-8 py-8 mt-8"
+          "xs:pl-4 md:pl-6 my-8"
         )}
       >
         <div className="flex items-center justify-between">

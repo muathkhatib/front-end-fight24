@@ -33,7 +33,7 @@ interface Props {
 
 function AdvertisementSection({ data, positionName }: Props) {
   return (
-    <div className="container flex items-center justify-center my-16 h-[300px]">
+    <div className="container flex items-center justify-center h-[300px]">
       {(data.advertismentType as string) === "code" ? (
         ReactHtmlParser(data.adsCode)
       ) : (
@@ -54,7 +54,7 @@ function AdvertisementSection({ data, positionName }: Props) {
                   <img
                     src={`https:${elm.fields.advertisementImage.fields.file.url}`}
                     alt={elm.fields.advertisementImage.fields.title}
-                    className="h-full w-auto object-none"
+                    className="h-full w-auto object-cover"
                   />
                 </Link>
               ))}

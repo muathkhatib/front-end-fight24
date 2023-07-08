@@ -2,6 +2,10 @@
 import React, { useCallback } from "react";
 import Link from "next/link";
 import { navbarTvLinks } from "@/utils/statics";
+import { useRouter } from 'next/navigation';
+
+import { usePathname, useSearchParams } from "next/navigation";
+import { classNames } from "@/utils";
 
 interface NavLink {
   title: string;
@@ -16,6 +20,8 @@ interface Props {
 }
 
 const Nav: React.FC<Props> = ({ setNestedList, setShowNested, lng }) => {
+  const path = usePathname();
+  const router = useRouter();
   const handleMouseEnter = useCallback(
     (nestedNav: NavLink[] = []) => {
       //@ts-ignore
@@ -26,7 +32,7 @@ const Nav: React.FC<Props> = ({ setNestedList, setShowNested, lng }) => {
     },
     [setNestedList, setShowNested]
   );
-
+  
   return (
     <div className="w-full flex items-center">
       <nav className="w-full">
@@ -34,17 +40,22 @@ const Nav: React.FC<Props> = ({ setNestedList, setShowNested, lng }) => {
           {navbarTvLinks.map(({ title, to, nestedNav }) => (
             <li
               className="cursor-pointer"
-              onMouseEnter={() =>
+              onClick={() => to === 'tv' ?
                 nestedNav && nestedNav.length > 0 && handleMouseEnter(nestedNav)
+                : router.push(to)
               }
               key={title}
             >
-              <Link
-                href={`/${to}`}
-                className="hover:text-base-yellow hover:border-b-2 border-b-base-yellow pb-4 xs:mr-0 lg:mr-4 xs:text-xs xl:text-base"
+              <span
+                className={classNames(
+                  path.split("/")[2] === to.toLowerCase()
+                    ? "border-b-4 border-b-base-yellow"
+                    : "",
+                  "hover:text-base-yellow hover:border-b-4 border-b-base-yellow pb-4 xs:mr-0 lg:mr-4 xs:text-xs xl:text-base"
+                )}
               >
                 {title.toUpperCase()}
-              </Link>
+              </span>
             </li>
           ))}
         </ul>

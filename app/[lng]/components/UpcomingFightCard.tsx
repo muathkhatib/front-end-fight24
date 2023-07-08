@@ -36,7 +36,7 @@ function UpcomingFightCard({ data, matchDate }: Props) {
 
   return (
     <>
-      <div className="flex-shrink-0 border border-light-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[324px] ">
+      <div className="flex-shrink-0 border border-dark-gray rounded-lg overflow-hidden w-[296px] mr-2 pb-2 h-[324px] ">
         <div className="h-1/2">
           <img
             src={

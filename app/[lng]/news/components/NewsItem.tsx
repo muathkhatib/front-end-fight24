@@ -17,7 +17,7 @@ function NewsItem({
 }) {
   const testText = documentToReactComponents(data?.fields?.articleContent);
   return (
-    <div className="w-[48%] my-4 rounded border border-base-gray ">
+    <div className="w-[49.5%] my-[36px] rounded-lg border border-dark-gray overflow-hidden">
       <img
         src={`https:${data.fields.image.fields.file.url}`}
         alt={data.fields.image.fields.title}
